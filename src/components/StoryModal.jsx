@@ -9,33 +9,35 @@ export default function StoryModal({ isOpen, onClose }) {
   return (
     <AnimatePresence>
       <div 
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs overflow-y-auto"
+        className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm p-4 sm:p-6"
         onClick={onClose}
       >
-        <motion.div
-          variants={modalTransition}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          onClick={(e) => e.stopPropagation()}
-          className="bg-[#FBF9F5] max-w-xl w-full rounded-3xl overflow-hidden border border-[#EAE5DB] shadow-2xl p-6 sm:p-8 text-left my-8"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-[#EAE5DB]">
-            <div>
-              <span className="text-xs uppercase tracking-widest text-[#5D645E] font-semibold">
-                Our Heritage & Philosophy
-              </span>
-              <h3 className="font-editorial text-2xl sm:text-3xl font-medium text-[#1F2421]">
-                The Story of Zion Inn
-              </h3>
+        <div className="min-h-full flex items-center justify-center py-6 sm:py-10">
+          <motion.div
+            variants={modalTransition}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            onClick={(e) => e.stopPropagation()}
+            className="bg-[#FBF9F5] max-w-xl w-full rounded-3xl overflow-hidden border border-[#EAE5DB] shadow-2xl p-6 sm:p-8 text-left my-auto"
+          >
+            <div className="flex items-start justify-between gap-3 pb-4 border-b border-[#EAE5DB]">
+              <div className="flex-1 pr-2">
+                <span className="text-[10px] sm:text-xs uppercase tracking-widest text-[#5D645E] font-semibold block mb-1">
+                  Our Heritage & Philosophy
+                </span>
+                <h3 className="font-editorial text-2xl sm:text-3xl font-medium text-[#1F2421] leading-tight">
+                  The Story of Zion Inn
+                </h3>
+              </div>
+              <button
+                onClick={onClose}
+                aria-label="Close Story"
+                className="p-2 -mr-1 -mt-1 rounded-full text-[#1F2421] hover:bg-[#3A4B3D]/10 shrink-0 cursor-pointer transition-colors"
+              >
+                <X className="w-5 h-5" strokeWidth={1.5} />
+              </button>
             </div>
-            <button
-              onClick={onClose}
-              className="p-2 rounded-full text-[#1F2421] hover:bg-[#3A4B3D]/10"
-            >
-              <X className="w-5 h-5" strokeWidth={1.5} />
-            </button>
-          </div>
 
           <div className="mt-5 space-y-4 text-sm text-[#5D645E] leading-relaxed">
             <p>
@@ -72,6 +74,7 @@ export default function StoryModal({ isOpen, onClose }) {
             </button>
           </div>
         </motion.div>
+        </div>
       </div>
     </AnimatePresence>
   );

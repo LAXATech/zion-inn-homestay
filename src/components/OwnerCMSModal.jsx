@@ -61,17 +61,18 @@ export default function OwnerCMSModal({
   return (
     <AnimatePresence>
       <div 
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs overflow-y-auto"
+        className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm p-4 sm:p-6"
         onClick={onClose}
       >
-        <motion.div
-          variants={modalTransition}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          onClick={(e) => e.stopPropagation()}
-          className="bg-[#FBF9F5] max-w-2xl w-full rounded-3xl overflow-hidden border border-[#EAE5DB] shadow-2xl p-6 sm:p-8 text-left my-8"
-        >
+        <div className="min-h-full flex items-center justify-center py-6 sm:py-10">
+          <motion.div
+            variants={modalTransition}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            onClick={(e) => e.stopPropagation()}
+            className="bg-[#FBF9F5] max-w-2xl w-full rounded-3xl overflow-hidden border border-[#EAE5DB] shadow-2xl p-5 sm:p-8 text-left my-auto"
+          >
           {/* Header */}
           <div className="flex items-center justify-between pb-4 border-b border-[#EAE5DB]">
             <div className="flex items-center gap-2.5">
@@ -219,6 +220,7 @@ VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUz...`}
             </div>
           </div>
         </motion.div>
+        </div>
       </div>
     </AnimatePresence>
   );
