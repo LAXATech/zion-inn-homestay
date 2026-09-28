@@ -262,15 +262,7 @@ export default function App() {
       />
 
       {/* Mobile Sticky Action Bar (< 768px) */}
-      <MobileStickyBar 
-        onOpenWhatsAppBooking={() => {
-          if (currentPage === 'rooms') {
-            setSelectedRoomForDrawer(rooms[0]);
-          } else {
-            handleScrollToSection('contact');
-          }
-        }}
-      />
+      <MobileStickyBar />
 
       {/* Footer */}
       <Footer onOpenCMS={() => setIsCMSOpen(true)} onNavigate={handleNavigate} />

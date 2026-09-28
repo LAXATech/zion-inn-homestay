@@ -60,10 +60,9 @@ export default function BookingContact({
   }, [activeRoomId, guestName, checkInDate, checkOutDate, guestCount, activeRoom?.name]);
 
   const handleOpenWhatsApp = (e) => {
-    if (e) e.preventDefault();
+    if (e && e.preventDefault) e.preventDefault();
     const encoded = encodeURIComponent(customMessage);
-    const url = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encoded}`;
-    window.open(url, '_blank', 'noopener,noreferrer');
+    window.location.href = `https://api.whatsapp.com/send?phone=${CONTACT_INFO.whatsappNumber}&text=${encoded}`;
   };
 
   const handleCallHost = () => {

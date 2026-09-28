@@ -61,7 +61,7 @@ export default function ContactPage({
       `\nPlease share availability and room confirmation details. Thank you!`
     );
 
-    window.open(`https://wa.me/${CONTACT_INFO.whatsapp}?text=${message}`, '_blank');
+    window.location.href = `https://api.whatsapp.com/send?phone=${CONTACT_INFO.whatsapp}&text=${message}`;
     setFormSubmitted(true);
   };
 
@@ -150,9 +150,9 @@ export default function ContactPage({
                 Chat directly with our host for quick room confirmations, photo queries, and custom dates.
               </p>
               <a
-                href={`https://wa.me/${CONTACT_INFO.whatsapp}?text=Hello%20Zion%20Inn%20Homestay!%20I%20would%20like%20to%20inquire%20about%20room%20availability.`}
+                href={`https://api.whatsapp.com/send?phone=${CONTACT_INFO.whatsapp}&text=Hello%20Zion%20Inn%20Homestay!%20I%20would%20like%20to%20inquire%20about%20room%20availability.`}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-full bg-[#3A4B3D] text-[#FBF9F5] text-xs font-semibold hover:bg-[#2D3B30] active:scale-[0.98] transition-all shadow-xs"
               >
                 <MessageCircle className="w-4 h-4" strokeWidth={1.5} />

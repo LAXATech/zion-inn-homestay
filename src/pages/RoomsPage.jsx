@@ -84,7 +84,7 @@ export default function RoomsPage({
       `• Estimated Total: ₹${totalEst.toLocaleString('en-IN')}\n\n` +
       `Could you please confirm availability and advance payment details? Thank you!`
     );
-    window.open(`https://wa.me/${CONTACT_INFO.whatsapp}?text=${message}`, '_blank');
+    window.location.href = `https://api.whatsapp.com/send?phone=${CONTACT_INFO.whatsapp}&text=${message}`;
   };
 
   return (

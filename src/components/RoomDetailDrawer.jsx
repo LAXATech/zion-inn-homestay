@@ -50,8 +50,7 @@ export default function RoomDetailDrawer({
 
   const handleWhatsAppBooking = () => {
     const encoded = encodeURIComponent(defaultMessage);
-    const url = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encoded}`;
-    window.open(url, '_blank', 'noopener,noreferrer');
+    window.location.href = `https://api.whatsapp.com/send?phone=${CONTACT_INFO.whatsappNumber}&text=${encoded}`;
   };
 
   return (
