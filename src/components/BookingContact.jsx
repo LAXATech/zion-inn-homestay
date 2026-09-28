@@ -234,10 +234,6 @@ export default function BookingContact({
                   <a href={`tel:${CONTACT_INFO.phone1Raw}`} className="hover:text-[#3A4B3D] font-medium">
                     {CONTACT_INFO.phone1}
                   </a>
-                  <span className="text-[#EAE5DB]">•</span>
-                  <a href="tel:+919994567890" className="hover:text-[#3A4B3D] font-medium">
-                    {CONTACT_INFO.phone2}
-                  </a>
                 </div>
               </div>
 

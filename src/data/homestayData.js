@@ -148,11 +148,11 @@ export const CONTACT_INFO = {
   addressLine1: 'Zion Inn Homestay, Neyyoor',
   addressLine2: 'Kanyakumari District, Tamil Nadu – 629802',
   landmark: 'Near Eraniel Railway Station (3 km), close to CSI Hospital Neyyoor',
-  phone1: '+91 98476 12345',
-  phone1Raw: '+919847612345',
-  phone2: '+91 99945 67890',
-  whatsapp: '919847612345',
-  whatsappNumber: '919847612345',
+  phone1: '+91 81484 37600',
+  phone1Raw: '+918148437600',
+  phone2: '+91 81484 37600',
+  whatsapp: '918148437600',
+  whatsappNumber: '918148437600',
   email: 'stay@zioninnhomestay.com',
   googleMapsUrl: 'https://maps.google.com/?q=Neyyoor,+Kanyakumari+District,+Tamil+Nadu+629802'
 };

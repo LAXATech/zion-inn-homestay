@@ -178,14 +178,7 @@ export default function ContactPage({
                   href={`tel:${CONTACT_INFO.phone1Raw}`}
                   className="flex items-center justify-between text-xs font-semibold text-[#1F2421] hover:text-[#3A4B3D] p-2 rounded-xl hover:bg-[#F5F2EB] transition-colors"
                 >
-                  <span>Primary Host: {CONTACT_INFO.phone1}</span>
-                  <span className="text-[11px] font-normal text-[#5D645E]">Call →</span>
-                </a>
-                <a
-                  href={`tel:${CONTACT_INFO.phone2.replace(/\s+/g, '')}`}
-                  className="flex items-center justify-between text-xs font-semibold text-[#1F2421] hover:text-[#3A4B3D] p-2 rounded-xl hover:bg-[#F5F2EB] transition-colors"
-                >
-                  <span>Secondary Caretaker: {CONTACT_INFO.phone2}</span>
+                  <span>Host & Caretaker: {CONTACT_INFO.phone1}</span>
                   <span className="text-[11px] font-normal text-[#5D645E]">Call →</span>
                 </a>
               </div>
