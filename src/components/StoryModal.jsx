@@ -1,0 +1,78 @@
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, Heart, Shield, Sparkles, MapPin } from 'lucide-react';
+import { modalTransition } from '../utils/animations';
+
+export default function StoryModal({ isOpen, onClose }) {
+  if (!isOpen) return null;
+
+  return (
+    <AnimatePresence>
+      <div 
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs overflow-y-auto"
+        onClick={onClose}
+      >
+        <motion.div
+          variants={modalTransition}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          onClick={(e) => e.stopPropagation()}
+          className="bg-[#FBF9F5] max-w-xl w-full rounded-3xl overflow-hidden border border-[#EAE5DB] shadow-2xl p-6 sm:p-8 text-left my-8"
+        >
+          <div className="flex items-center justify-between pb-4 border-b border-[#EAE5DB]">
+            <div>
+              <span className="text-xs uppercase tracking-widest text-[#5D645E] font-semibold">
+                Our Heritage & Philosophy
+              </span>
+              <h3 className="font-editorial text-2xl sm:text-3xl font-medium text-[#1F2421]">
+                The Story of Zion Inn
+              </h3>
+            </div>
+            <button
+              onClick={onClose}
+              className="p-2 rounded-full text-[#1F2421] hover:bg-[#3A4B3D]/10"
+            >
+              <X className="w-5 h-5" strokeWidth={1.5} />
+            </button>
+          </div>
+
+          <div className="mt-5 space-y-4 text-sm text-[#5D645E] leading-relaxed">
+            <p>
+              Tucked inside the serene green village of <strong>Neyyoor</strong> in southern Tamil Nadu, Zion Inn was envisioned as a quiet haven for travellers who appreciate genuine homestay warmth over impersonal commercial hotels.
+            </p>
+            <p>
+              Located just 3 km from historic <strong>Eraniel</strong>, our home sits beneath swaying coconut palms and flowering bougainvillea. Here, days start with birdsong and fresh filter coffee on the breezy veranda, and end with cool evening sea winds blowing inland from nearby Muttom.
+            </p>
+            <div className="p-4 rounded-2xl bg-[#F5F2EB] border border-[#EAE5DB] text-xs text-[#222623] space-y-2">
+              <div className="flex items-center gap-2">
+                <Heart className="w-4 h-4 text-rose-600 shrink-0" strokeWidth={1.5} />
+                <span><strong>Family-Run:</strong> Personal care, homecooked morning breakfast options, and local insights.</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Shield className="w-4 h-4 text-emerald-600 shrink-0" strokeWidth={1.5} />
+                <span><strong>Safe & Peaceful:</strong> Clean filtered water, uninterrupted power backup, and gated private parking.</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-[#3A4B3D] shrink-0" strokeWidth={1.5} />
+                <span><strong>Convenient Hub:</strong> Minutes from Padmanabhapuram Palace, Mathur Aqueduct, and Kanyakumari.</span>
+              </div>
+            </div>
+            <p>
+              Whether you are working remotely, taking a restful family vacation, or exploring the cultural riches of Travancore and Kanyakumari, Zion Inn welcomes you with open doors.
+            </p>
+          </div>
+
+          <div className="mt-6 pt-4 border-t border-[#EAE5DB] flex justify-end">
+            <button
+              onClick={onClose}
+              className="px-6 py-2 rounded-full bg-[#3A4B3D] text-[#FBF9F5] text-xs sm:text-sm font-medium hover:bg-[#2D3B30] transition-colors"
+            >
+              Close
+            </button>
+          </div>
+        </motion.div>
+      </div>
+    </AnimatePresence>
+  );
+}

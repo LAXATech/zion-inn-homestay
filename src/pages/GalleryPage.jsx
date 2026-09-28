@@ -1,0 +1,376 @@
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  ArrowLeft, 
+  X, 
+  ChevronLeft, 
+  ChevronRight, 
+  Maximize2, 
+  Sparkles, 
+  BedDouble, 
+  Trees, 
+  Compass, 
+  Camera,
+  ArrowRight
+} from 'lucide-react';
+import { subtleFadeUp } from '../utils/animations';
+
+const GALLERY_ITEMS = [
+  {
+    id: 'hero-banner',
+    image: '/images/hero-banner.jpg',
+    title: 'The Veranda at Dawn',
+    category: 'spaces',
+    categoryLabel: 'Verandas & Gardens',
+    caption: 'Lush palms, gentle morning breezes, and peaceful open-air verandas overlooking tropical foliage.',
+    span: 'col-span-1 md:col-span-2 aspect-[16/9]'
+  },
+  {
+    id: 'king-room',
+    image: '/images/king-room.jpg',
+    title: 'King Veranda Suite',
+    category: 'rooms',
+    categoryLabel: 'Rooms & Suites',
+    caption: 'Handcrafted solid teakwood king bed, natural linen bedding, and soft morning sunlight.',
+    span: 'col-span-1 aspect-[4/3]'
+  },
+  {
+    id: 'simple-comforts',
+    image: '/images/simple-comforts.jpg',
+    title: 'Sunlit Reading Nook',
+    category: 'spaces',
+    categoryLabel: 'Verandas & Gardens',
+    caption: 'Potted indoor plants, cozy armchair by the window, and a quiet corner for morning filter coffee.',
+    span: 'col-span-1 aspect-[4/3]'
+  },
+  {
+    id: 'deluxe-room',
+    image: '/images/deluxe-room.jpg',
+    title: 'Deluxe Balcony Room',
+    category: 'rooms',
+    categoryLabel: 'Rooms & Suites',
+    caption: 'Expansive sliding glass doors opening directly out to a private flowering garden terrace.',
+    span: 'col-span-1 md:col-span-2 aspect-[16/9]'
+  },
+  {
+    id: 'the-space',
+    image: '/images/the-space.jpg',
+    title: 'Heritage Garden Courtyard',
+    category: 'spaces',
+    categoryLabel: 'The Homestay',
+    caption: 'Paved stone pathways, tropical foliage, and outdoor cane seating under native fruit trees.',
+    span: 'col-span-1 aspect-[4/3]'
+  },
+  {
+    id: 'family-room',
+    image: '/images/family-room.jpg',
+    title: 'Family Heritage Suite',
+    category: 'rooms',
+    categoryLabel: 'Rooms & Suites',
+    caption: 'Generously proportioned suite with high timber truss ceilings, two queen beds, and lounge area.',
+    span: 'col-span-1 aspect-[4/3]'
+  },
+  {
+    id: 'hero-facade',
+    image: '/images/hero.jpg',
+    title: 'Zion Inn Villa Entrance',
+    category: 'spaces',
+    categoryLabel: 'The Homestay',
+    caption: 'Warm terracotta finishes and welcoming architectural lines set back from the quiet village road.',
+    span: 'col-span-1 aspect-[4/3]'
+  },
+  {
+    id: 'padmanabhapuram',
+    image: '/images/padmanabhapuram.jpg',
+    title: 'Padmanabhapuram Wooden Palace',
+    category: 'excursions',
+    categoryLabel: 'Nearby Sights',
+    caption: '16th-century wooden architectural marvel of the Travancore Maharajas, just 12 mins from Zion Inn.',
+    span: 'col-span-1 md:col-span-2 aspect-[16/9]'
+  },
+  {
+    id: 'muttom-beach',
+    image: '/images/muttom-beach.jpg',
+    title: 'Muttom Rocky Beach & Lighthouse',
+    category: 'excursions',
+    categoryLabel: 'Nearby Sights',
+    caption: 'A striking rocky coastline with a century-old lighthouse and sunset panoramas, 20 mins drive.',
+    span: 'col-span-1 aspect-[4/3]'
+  },
+  {
+    id: 'mathur-aqueduct',
+    image: '/images/mathur-aqueduct.jpg',
+    title: 'Mathur Hanging Aqueduct',
+    category: 'excursions',
+    categoryLabel: 'Nearby Sights',
+    caption: 'Asia’s highest hanging trough aqueduct towering over lush coconut valleys, 18 mins away.',
+    span: 'col-span-1 aspect-[4/3]'
+  }
+];
+
+export default function GalleryPage({ onNavigateHome, onNavigateRooms }) {
+  const [activeTab, setActiveTab] = useState('all');
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+
+  const filteredItems = GALLERY_ITEMS.filter((item) => {
+    if (activeTab === 'all') return true;
+    return item.category === activeTab;
+  });
+
+  // Lightbox keyboard controls
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (lightboxIndex === null) return;
+      if (e.key === 'Escape') setLightboxIndex(null);
+      if (e.key === 'ArrowRight') handleNext();
+      if (e.key === 'ArrowLeft') handlePrev();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxIndex]);
+
+  const handleNext = () => {
+    if (lightboxIndex !== null) {
+      setLightboxIndex((prev) => (prev + 1) % filteredItems.length);
+    }
+  };
+
+  const handlePrev = () => {
+    if (lightboxIndex !== null) {
+      setLightboxIndex((prev) => (prev - 1 + filteredItems.length) % filteredItems.length);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-[#FBF9F5] text-[#222623] pt-24 sm:pt-28 pb-24">
+      {/* Top Header & Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 mb-8 sm:mb-12">
+        <div className="flex items-center justify-between gap-4 mb-6">
+          <button
+            onClick={onNavigateHome}
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[#4D5A50] hover:text-[#1F2421] transition-colors group cursor-pointer"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" strokeWidth={1.5} />
+            <span>Back to Home</span>
+          </button>
+
+          <button
+            onClick={onNavigateRooms}
+            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-medium text-[#3A4B3D] bg-white border border-[#EAE5DB] hover:bg-[#F5F2EB] transition-all shadow-xs cursor-pointer"
+          >
+            <span>View Room Rates</span>
+            <ArrowRight className="w-3.5 h-3.5" strokeWidth={1.5} />
+          </button>
+        </div>
+
+        {/* Hero Section */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={subtleFadeUp}
+          className="text-left max-w-3xl"
+        >
+          <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#5D645E] mb-2 block">
+            VISUAL JOURNAL
+          </span>
+          <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-[#1F2421] leading-tight mb-4">
+            Glimpses of Zion Inn
+          </h1>
+          <p className="text-sm sm:text-base text-[#4F5751] font-normal leading-relaxed">
+            Sun-drenched verandas, handcrafted teakwood furnishings, blooming garden pathways, and the tranquil pace of village life in Neyyoor, Kanyakumari.
+          </p>
+        </motion.div>
+
+        {/* Filter Pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.15 }}
+          className="mt-8 flex flex-wrap items-center gap-2"
+        >
+          {[
+            { id: 'all', label: 'All Photos (10)', icon: Camera },
+            { id: 'rooms', label: 'Rooms & Suites', icon: BedDouble },
+            { id: 'spaces', label: 'Verandas & Gardens', icon: Trees },
+            { id: 'excursions', label: 'Nearby Excursions', icon: Compass }
+          ].map((tab) => {
+            const Icon = tab.icon;
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium transition-all cursor-pointer ${
+                  isActive
+                    ? 'bg-[#3A4B3D] text-[#FBF9F5] shadow-xs'
+                    : 'bg-white text-[#3A423C] border border-[#EAE5DB] hover:bg-[#F5F2EB]'
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5" strokeWidth={1.5} />
+                <span>{tab.label}</span>
+              </button>
+            );
+          })}
+        </motion.div>
+      </div>
+
+      {/* Gallery Grid */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8">
+        <motion.div 
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
+        >
+          <AnimatePresence>
+            {filteredItems.map((item, index) => (
+              <motion.div
+                key={item.id}
+                layout
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                onClick={() => setLightboxIndex(index)}
+                className="group relative rounded-3xl overflow-hidden bg-white border border-[#EAE5DB] shadow-xs hover:shadow-md cursor-pointer transition-all duration-300 flex flex-col"
+              >
+                {/* Photo Container */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-stone-100">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  {/* Subtle hover gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                  {/* Expand icon pill */}
+                  <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md text-[#1F2421] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm">
+                    <Maximize2 className="w-4 h-4" strokeWidth={1.5} />
+                  </div>
+
+                  {/* Category Pill */}
+                  <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="px-2.5 py-1 rounded-full text-[10px] uppercase tracking-wider font-semibold bg-white/90 backdrop-blur-md text-[#3A4B3D]">
+                      {item.categoryLabel}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Caption Bar */}
+                <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between text-left">
+                  <div>
+                    <h3 className="font-editorial text-lg sm:text-xl font-medium text-[#1F2421] mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-[#5D645E] leading-relaxed line-clamp-2">
+                      {item.caption}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </section>
+
+      {/* Bottom CTA Banner */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 mt-16 sm:mt-24">
+        <div className="bg-[#3A4B3D] text-[#FBF9F5] rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
+          <div className="max-w-xl text-left">
+            <span className="text-xs uppercase tracking-[0.2em] font-medium text-emerald-200/90 block mb-2">
+              EXPERIENCE THE SANCTUARY
+            </span>
+            <h2 className="font-editorial text-3xl sm:text-4xl text-white font-normal mb-2 leading-tight">
+              Ready to unwind at Zion Inn?
+            </h2>
+            <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-light">
+              Choose your sanctuary room, check live dates, and reserve directly with the host family for the best local rates.
+            </p>
+          </div>
+
+          <button
+            onClick={onNavigateRooms}
+            className="px-6 py-3 rounded-full bg-[#FBF9F5] text-[#1F2421] text-xs sm:text-sm font-semibold hover:bg-white active:scale-[0.98] transition-all shadow-xs whitespace-nowrap cursor-pointer"
+          >
+            Explore Rooms & Check Rates
+          </button>
+        </div>
+      </section>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxIndex !== null && filteredItems[lightboxIndex] && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
+            onClick={() => setLightboxIndex(null)}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setLightboxIndex(null)}
+              className="absolute top-5 right-5 sm:top-8 sm:right-8 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer z-50"
+              aria-label="Close Lightbox"
+            >
+              <X className="w-6 h-6" strokeWidth={1.5} />
+            </button>
+
+            {/* Prev Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePrev();
+              }}
+              className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition-colors cursor-pointer z-50"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={1.5} />
+            </button>
+
+            {/* Next Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNext();
+              }}
+              className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition-colors cursor-pointer z-50"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={1.5} />
+            </button>
+
+            {/* Modal Content */}
+            <div 
+              className="max-w-5xl w-full max-h-[90vh] flex flex-col items-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative rounded-2xl overflow-hidden max-h-[72vh] shadow-2xl border border-white/10 bg-black">
+                <img
+                  src={filteredItems[lightboxIndex].image}
+                  alt={filteredItems[lightboxIndex].title}
+                  className="w-auto h-auto max-h-[72vh] max-w-full object-contain mx-auto"
+                />
+              </div>
+
+              {/* Lightbox Information Bar */}
+              <div className="mt-4 text-center max-w-2xl px-4">
+                <div className="flex items-center justify-center gap-3 text-xs text-white/60 mb-1">
+                  <span>{filteredItems[lightboxIndex].categoryLabel}</span>
+                  <span>•</span>
+                  <span>{lightboxIndex + 1} of {filteredItems.length}</span>
+                </div>
+                <h3 className="font-editorial text-xl sm:text-2xl text-white font-medium">
+                  {filteredItems[lightboxIndex].title}
+                </h3>
+                <p className="text-xs sm:text-sm text-white/80 mt-1 leading-relaxed">
+                  {filteredItems[lightboxIndex].caption}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
