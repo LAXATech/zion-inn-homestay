@@ -35,7 +35,7 @@ export default function ContactPage({
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    roomType: 'Deluxe Room',
+    roomType: 'AC Room',
     message: ''
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -326,9 +326,8 @@ export default function ContactPage({
                     onChange={(e) => setFormData({ ...formData, roomType: e.target.value })}
                     className="w-full px-4 py-3 rounded-2xl bg-[#FBF9F5] border border-[#EAE5DB] text-xs sm:text-sm text-[#1F2421] focus:outline-none focus:border-[#3A4B3D] cursor-pointer"
                   >
-                    <option value="King Room">King Room (Garden View, 1 King Bed, 2 Guests) – ₹2,000/night</option>
-                    <option value="Deluxe Room">Deluxe Room (Balcony, 1 King + Daybed, 3 Guests) – ₹2,500/night</option>
-                    <option value="Family Room">Family Room (Twin Queen Beds, 4 Guests) – ₹3,500/night</option>
+                    <option value="AC Room">AC Room (Garden View, 1 King Bed, 2 Guests) – ₹2,000/night</option>
+                    <option value="Non-AC Room">Non-AC Room (Garden View, 1 King Bed, 2 Guests) – ₹1,500/night</option>
                     <option value="Full Homestay">Entire Homestay Property (Up to 9 Guests)</option>
                   </select>
                 </div>

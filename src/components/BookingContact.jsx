@@ -22,7 +22,7 @@ export default function BookingContact({
   guestCount 
 }) {
   const [guestName, setGuestName] = useState('');
-  const [activeRoomId, setActiveRoomId] = useState(selectedRoom?.id || 'deluxe-room');
+  const [activeRoomId, setActiveRoomId] = useState(selectedRoom?.id || 'ac-room');
   const [customDates, setCustomDates] = useState('');
   const [customMessage, setCustomMessage] = useState('');
   const [isCopied, setIsCopied] = useState(false);
@@ -55,7 +55,7 @@ export default function BookingContact({
     const countStr = guestCount ? `${guestCount} guests` : '2 guests';
     const nameGreeting = guestName.trim() ? ` My name is ${guestName.trim()}.` : '';
 
-    const autoMsg = `Hi Zion Inn, I'd like to check availability for the ${activeRoom?.name || 'Deluxe Room'} ${datesStr} for ${countStr}.${nameGreeting}`;
+    const autoMsg = `Hi Zion Inn, I'd like to check availability for the ${activeRoom?.name || 'AC Room'} ${datesStr} for ${countStr}.${nameGreeting}`;
     setCustomMessage(autoMsg);
   }, [activeRoomId, guestName, checkInDate, checkOutDate, guestCount, activeRoom?.name]);
 

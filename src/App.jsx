@@ -9,7 +9,6 @@ import Amenities from './components/Amenities';
 import SurroundingGuide from './components/SurroundingGuide';
 import BookingContact from './components/BookingContact';
 import MobileStickyBar from './components/MobileStickyBar';
-import OwnerCMSModal from './components/OwnerCMSModal';
 import StoryModal from './components/StoryModal';
 import Footer from './components/Footer';
 import RoomsPage from './pages/RoomsPage';
@@ -30,18 +29,8 @@ export default function App() {
     return 'home';
   });
 
-  // Load room states with persistence (supports direct owner edits & CMS)
-  const [rooms, setRooms] = useState(() => {
-    const saved = localStorage.getItem('zion_inn_rooms');
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch {
-        return INITIAL_ROOMS;
-      }
-    }
-    return INITIAL_ROOMS;
-  });
+  // Room content and photo paths are maintained in the source data file.
+  const rooms = INITIAL_ROOMS;
 
   // Booking parameters
   const [checkInDate, setCheckInDate] = useState(() => {
@@ -59,7 +48,6 @@ export default function App() {
   // Modals & Drawers state
   const [selectedRoomForDrawer, setSelectedRoomForDrawer] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isCMSOpen, setIsCMSOpen] = useState(false);
   const [isStoryOpen, setIsStoryOpen] = useState(false);
 
   // Listen to browser hash changes
@@ -108,17 +96,6 @@ export default function App() {
     }
   };
 
-  // Persistence handler
-  const handleUpdateRooms = (newRooms) => {
-    setRooms(newRooms);
-    localStorage.setItem('zion_inn_rooms', JSON.stringify(newRooms));
-  };
-
-  const handleResetRooms = () => {
-    setRooms(INITIAL_ROOMS);
-    localStorage.removeItem('zion_inn_rooms');
-  };
-
   // Scroll to booking or rooms
   const handleScrollToSection = (id) => {
     const el = document.getElementById(id);
@@ -142,7 +119,6 @@ export default function App() {
         currentPage={currentPage}
         onNavigate={handleNavigate}
         onBookStayClick={handleBookStayClick}
-        onOpenCMS={() => setIsCMSOpen(true)}
         onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
         isMobileMenuOpen={isMobileMenuOpen}
       />
@@ -154,7 +130,6 @@ export default function App() {
         currentPage={currentPage}
         onNavigate={handleNavigate}
         onBookStayClick={handleBookStayClick}
-        onOpenCMS={() => setIsCMSOpen(true)}
       />
 
       {/* Main Content Sections: Conditionally render Rooms, Gallery, Contact, or Homepage */}
@@ -170,7 +145,6 @@ export default function App() {
             setCheckOutDate={setCheckOutDate}
             guestCount={guestCount}
             setGuestCount={setGuestCount}
-            onOpenCMS={() => setIsCMSOpen(true)}
           />
         )}
 
@@ -246,15 +220,6 @@ export default function App() {
         guestCount={guestCount}
       />
 
-      {/* Owner Rates & Availability CMS Modal */}
-      <OwnerCMSModal 
-        isOpen={isCMSOpen}
-        onClose={() => setIsCMSOpen(false)}
-        rooms={rooms}
-        onUpdateRooms={handleUpdateRooms}
-        onResetRooms={handleResetRooms}
-      />
-
       {/* Homestay Story Modal */}
       <StoryModal 
         isOpen={isStoryOpen}
@@ -265,7 +230,7 @@ export default function App() {
       <MobileStickyBar />
 
       {/* Footer */}
-      <Footer onOpenCMS={() => setIsCMSOpen(true)} onNavigate={handleNavigate} />
+      <Footer onNavigate={handleNavigate} />
     </div>
   );
 }

@@ -18,8 +18,7 @@ import {
   Car, 
   UtensilsCrossed,
   Info,
-  Eye,
-  SlidersHorizontal
+  Eye
 } from 'lucide-react';
 import { subtleFadeUp } from '../utils/animations';
 import { POLICIES, CONTACT_INFO } from '../data/homestayData';
@@ -33,15 +32,10 @@ export default function RoomsPage({
   checkOutDate, 
   setCheckOutDate, 
   guestCount, 
-  setGuestCount,
-  onOpenCMS 
+  setGuestCount
 }) {
-  const [selectedFilter, setSelectedFilter] = useState('all'); // 'all' | 'couples' | 'family'
-  const [activeGalleryIndices, setActiveGalleryIndices] = useState({
-    'king-room': 0,
-    'deluxe-room': 0,
-    'family-room': 0
-  });
+  const [selectedFilter, setSelectedFilter] = useState('all'); // 'all' | 'ac' | 'non-ac'
+  const [activeGalleryIndices, setActiveGalleryIndices] = useState({});
 
   // Calculate nights
   const calculateNights = () => {
@@ -61,8 +55,8 @@ export default function RoomsPage({
 
   // Filter rooms based on selection
   const filteredRooms = rooms.filter((room) => {
-    if (selectedFilter === 'couples') return room.capacity <= 2;
-    if (selectedFilter === 'family') return room.capacity >= 3;
+    if (selectedFilter === 'ac') return room.roomType === 'ac';
+    if (selectedFilter === 'non-ac') return room.roomType === 'non-ac';
     return true;
   });
 
@@ -100,15 +94,6 @@ export default function RoomsPage({
             <span>Back to Home</span>
           </button>
 
-          <div className="flex items-center gap-3">
-            <button
-              onClick={onOpenCMS}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-[#3A4B3D] bg-white border border-[#EAE5DB] hover:bg-[#F5F2EB] transition-all shadow-xs"
-            >
-              <SlidersHorizontal className="w-3.5 h-3.5" strokeWidth={1.5} />
-              <span>Update Rates & Status</span>
-            </button>
-          </div>
         </div>
 
         {/* Hero Section */}
@@ -140,9 +125,9 @@ export default function RoomsPage({
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs font-semibold text-[#5D645E] mr-1 hidden sm:inline">Filter:</span>
             {[
-              { id: 'all', label: 'All Rooms (3)' },
-              { id: 'couples', label: 'Couples / 1-2 Guests' },
-              { id: 'family', label: 'Families & Groups (3-4+)' }
+              { id: 'all', label: 'All Rooms (2)' },
+              { id: 'ac', label: 'AC Rooms' },
+              { id: 'non-ac', label: 'Non-AC Rooms' }
             ].map((filter) => (
               <button
                 key={filter.id}

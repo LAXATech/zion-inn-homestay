@@ -7,8 +7,7 @@ export default function MobileNavDrawer({
   onClose, 
   currentPage = 'home', 
   onNavigate, 
-  onBookStayClick, 
-  onOpenCMS 
+  onBookStayClick
 }) {
   const handleNavClick = (page, targetHash) => {
     onClose();

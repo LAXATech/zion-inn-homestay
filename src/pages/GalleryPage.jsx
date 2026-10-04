@@ -18,7 +18,7 @@ import { subtleFadeUp } from '../utils/animations';
 const GALLERY_ITEMS = [
   {
     id: 'hero-banner',
-    image: '/images/hero-banner.jpg',
+    image: '/images/reception.jpg',
     title: 'The Veranda at Dawn',
     category: 'spaces',
     categoryLabel: 'Verandas & Gardens',
@@ -26,9 +26,9 @@ const GALLERY_ITEMS = [
     span: 'col-span-1 md:col-span-2 aspect-[16/9]'
   },
   {
-    id: 'king-room',
-    image: '/images/king-room.jpg',
-    title: 'King Veranda Suite',
+    id: 'ac-room',
+    image: '/images/ac-room1.jpg',
+    title: 'AC Room',
     category: 'rooms',
     categoryLabel: 'Rooms & Suites',
     caption: 'Handcrafted solid teakwood king bed, natural linen bedding, and soft morning sunlight.',
@@ -44,9 +44,9 @@ const GALLERY_ITEMS = [
     span: 'col-span-1 aspect-[4/3]'
   },
   {
-    id: 'deluxe-room',
+    id: 'non-ac-room',
     image: '/images/deluxe-room.jpg',
-    title: 'Deluxe Balcony Room',
+    title: 'Non-AC Room',
     category: 'rooms',
     categoryLabel: 'Rooms & Suites',
     caption: 'Expansive sliding glass doors opening directly out to a private flowering garden terrace.',
@@ -59,15 +59,6 @@ const GALLERY_ITEMS = [
     category: 'spaces',
     categoryLabel: 'The Homestay',
     caption: 'Paved stone pathways, tropical foliage, and outdoor cane seating under native fruit trees.',
-    span: 'col-span-1 aspect-[4/3]'
-  },
-  {
-    id: 'family-room',
-    image: '/images/family-room.jpg',
-    title: 'Family Heritage Suite',
-    category: 'rooms',
-    categoryLabel: 'Rooms & Suites',
-    caption: 'Generously proportioned suite with high timber truss ceilings, two queen beds, and lounge area.',
     span: 'col-span-1 aspect-[4/3]'
   },
   {
@@ -189,7 +180,7 @@ export default function GalleryPage({ onNavigateHome, onNavigateRooms }) {
           className="mt-8 flex flex-wrap items-center gap-2"
         >
           {[
-            { id: 'all', label: 'All Photos (10)', icon: Camera },
+              { id: 'all', label: 'All Photos (9)', icon: Camera },
             { id: 'rooms', label: 'Rooms & Suites', icon: BedDouble },
             { id: 'spaces', label: 'Verandas & Gardens', icon: Trees },
             { id: 'excursions', label: 'Nearby Excursions', icon: Compass }

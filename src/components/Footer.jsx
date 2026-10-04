@@ -2,7 +2,7 @@ import React from 'react';
 import { MessageCircle } from 'lucide-react';
 import { CONTACT_INFO } from '../data/homestayData';
 
-export default function Footer({ onOpenCMS, onNavigate }) {
+export default function Footer({ onNavigate }) {
   const handleFooterLink = (e, page, targetHash) => {
     e.preventDefault();
     if (onNavigate) {
@@ -67,12 +67,6 @@ export default function Footer({ onOpenCMS, onNavigate }) {
               className="hover:text-white transition-colors cursor-pointer"
             >
               Contact
-            </button>
-            <button 
-              onClick={onOpenCMS} 
-              className="text-emerald-300 hover:text-emerald-200 transition-colors text-xs opacity-80 hover:opacity-100 cursor-pointer"
-            >
-              Host Portal
             </button>
           </div>
         </div>

@@ -5,7 +5,6 @@ export default function Navbar({
   currentPage = 'home', 
   onNavigate, 
   onBookStayClick, 
-  onOpenCMS, 
   onOpenMobileMenu, 
   isMobileMenuOpen 
 }) {

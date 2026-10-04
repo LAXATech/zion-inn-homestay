@@ -1,4 +1,29 @@
-# React + Vite
+# Zion Inn Homestay
+
+## Updating Room Photos
+
+Room editing is intentionally kept out of the public website. To change photos as the developer:
+
+1. Add the new image files to `public/images/`.
+2. Open `src/data/homestayData.js`.
+3. In `INITIAL_ROOMS`, update the `image` field for the main photo.
+4. Replace the paths inside that room's `gallery` array for its detail photos.
+5. Use `roomType: 'ac'` for the AC room and `roomType: 'non-ac'` for the Non-AC room.
+
+Example:
+
+```js
+image: '/images/ac-room-main.jpg',
+gallery: [
+	'/images/ac-room-main.jpg',
+	'/images/ac-room-bed.jpg',
+	'/images/ac-room-bathroom.jpg'
+]
+```
+
+The files in `public/images/` are served directly by Vite, so no import is needed. Keep the filename and path exactly the same in the data file.
+
+## Development
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 

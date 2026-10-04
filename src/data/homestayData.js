@@ -1,64 +1,45 @@
 export const INITIAL_ROOMS = [
   {
-    id: 'king-room',
-    name: 'King Room',
+    id: 'ac-room',
+    name: 'AC Room',
+    roomType: 'ac',
     view: 'Garden View',
     capacity: 2,
     price: 2000,
     status: 'Available',
-    image: '/images/king-room.jpg',
+    image: '/images/ac-room1.jpg',
     gallery: [
-      '/images/king-room.jpg',
-      '/images/deluxe-room.jpg',
-      '/images/the-space.jpg',
-      '/images/simple-comforts.jpg'
+      '/images/ac-room1.jpg',
+      '/images/ac-room1-tv.jpg',
+      '/images/ac-room2.jpg',
+      '/images/bathroom.jpg',
+      '/images/reception.jpg'
     ],
-    description: 'A tranquil haven with a handcrafted king-size bed, warm teakwood furnishings, and tranquil morning garden views. Perfect for couples or solo retreats seeking peace.',
+    description: 'A cool, tranquil haven with a handcrafted king-size bed, warm teakwood furnishings, and peaceful morning garden views. Perfect for couples or solo retreats seeking comfort.',
     bed: '1 King Bed (6ft)',
     features: ['1 King Bed (6ft)', 'Free Wi-Fi', 'Private Balcony', 'Attached Bathroom'],
-    amenities: ['High-speed Wi-Fi', 'Ceiling Fan & Air Conditioning', 'En-suite Bathroom with Hot Water', 'Daily Housekeeping', 'Electric Kettle with Tea/Coffee'],
+    amenities: ['High-speed Wi-Fi', 'Air Conditioning', 'En-suite Bathroom with Hot Water', 'Daily Housekeeping', 'Electric Kettle with Tea/Coffee'],
     size: '280 sq.ft'
   },
   {
-    id: 'deluxe-room',
-    name: 'Deluxe Room',
+    id: 'non-ac-room',
+    name: 'Non-AC Room',
+    roomType: 'non-ac',
     view: 'Garden View',
-    capacity: 3,
-    price: 2500,
+    capacity: 2,
+    price: 1500,
     status: 'Available',
-    featured: true,
-    image: '/images/deluxe-room.jpg',
+    image: '/images/non-ac room2 view2.jpg',
     gallery: [
-      '/images/deluxe-room.jpg',
-      '/images/king-room.jpg',
-      '/images/the-space.jpg',
-      '/images/simple-comforts.jpg'
+      '/images/non-ac room.jpg',
+      '/images/non-ac room2 view2.jpg',
+      '/images/bathroom2.jpg',
     ],
-    description: 'Our most popular sanctuary featuring floor-to-ceiling glass doors opening onto an expansive private balcony overlooking tropical palms and lush flowering gardens.',
-    bed: '1 King Bed (6ft) + Extra Daybed',
+    description: 'A breezy, comfortable room with a handcrafted king-size bed, warm teakwood furnishings, and tranquil garden views. A simple, restful stay for couples or solo travellers.',
+    bed: '1 King Bed (6ft)',
     features: ['1 King Bed (6ft)', 'Free Wi-Fi', 'Private Balcony', 'Attached Bathroom'],
-    amenities: ['High-speed Wi-Fi', 'In-room Seating Area', 'Private Veranda with Cane Chairs', 'Modern Rain Shower', '24/7 Power Backup', 'Work Desk'],
-    size: '350 sq.ft'
-  },
-  {
-    id: 'family-room',
-    name: 'Family Room',
-    view: 'Garden View',
-    capacity: 4,
-    price: 3500,
-    status: 'Available',
-    image: '/images/family-room.jpg',
-    gallery: [
-      '/images/family-room.jpg',
-      '/images/the-space.jpg',
-      '/images/deluxe-room.jpg',
-      '/images/simple-comforts.jpg'
-    ],
-    description: 'Generously proportioned heritage suite with soaring timber truss ceilings, two expansive queen beds, ample wardrobe space, and a family lounge corner.',
-    bed: '2 Queen Beds',
-    features: ['2 Queen Beds', 'Free Wi-Fi', 'Garden Balcony', 'Spacious En-Suite'],
-    amenities: ['High-speed Wi-Fi', 'Two Queen Size Cots', 'Large Luggage Storage', 'Attached Premium Bathroom', 'Dining & Tea Corner', 'Direct Garden Access'],
-    size: '480 sq.ft'
+    amenities: ['High-speed Wi-Fi', 'Ceiling Fan', 'En-suite Bathroom with Hot Water', 'Daily Housekeeping', 'Electric Kettle with Tea/Coffee'],
+    size: '280 sq.ft'
   }
 ];
 
