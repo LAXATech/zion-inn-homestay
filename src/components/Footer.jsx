@@ -16,11 +16,13 @@ export default function Footer({ onNavigate }) {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-10 border-b border-white/10">
           {/* Brand Logo & Name */}
           <div className="flex items-center gap-3">
-            <img 
-              src="/images/logo.png" 
-              alt="Zion Inn Homestay" 
-              className="w-8 h-7 object-contain brightness-0 invert opacity-90"
-            />
+            <div className="w-9 h-9 rounded-lg bg-white/95 p-1 flex items-center justify-center shadow-xs">
+              <img 
+                src="/images/logo.png" 
+                alt="Zion Inn Homestay" 
+                className="w-full h-full object-contain"
+              />
+            </div>
             <div className="text-left">
               <span className="font-editorial text-lg font-semibold tracking-wider block leading-none uppercase">
                 Zion Inn
@@ -40,41 +42,99 @@ export default function Footer({ onNavigate }) {
 
           {/* Nav Links */}
           <div className="flex items-center gap-6 text-xs sm:text-sm font-medium text-white/80">
-            <button 
-              type="button"
+            <a 
+              href="/"
               onClick={(e) => handleFooterLink(e, 'home', null)} 
               className="hover:text-white transition-colors cursor-pointer"
             >
               Home
-            </button>
-            <button 
-              type="button"
+            </a>
+            <a 
+              href="/rooms"
               onClick={(e) => handleFooterLink(e, 'rooms', null)} 
               className="hover:text-white transition-colors cursor-pointer"
             >
               Rooms
-            </button>
-            <button 
-              type="button"
+            </a>
+            <a 
+              href="/gallery"
               onClick={(e) => handleFooterLink(e, 'gallery', null)} 
               className="hover:text-white transition-colors cursor-pointer"
             >
               Gallery
-            </button>
-            <button 
-              type="button"
+            </a>
+            <a 
+              href="/contact"
               onClick={(e) => handleFooterLink(e, 'contact', null)} 
               className="hover:text-white transition-colors cursor-pointer"
             >
               Contact
-            </button>
+            </a>
+          </div>
+        </div>
+
+        {/* Local SEO NAP Block: Name, Address, Phone & Nearby Hubs */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8 border-b border-white/10 text-xs text-white/80 text-left">
+          <div>
+            <h4 className="text-white font-semibold mb-2 uppercase tracking-wider text-[11px]">
+              Location & Address
+            </h4>
+            <address className="not-italic leading-relaxed">
+              <p className="font-medium text-white">{CONTACT_INFO.name}</p>
+              <p>{CONTACT_INFO.addressLine1}</p>
+              <p>{CONTACT_INFO.addressLine2}</p>
+              <p className="text-white/60 mt-1">{CONTACT_INFO.landmark}</p>
+            </address>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-2 uppercase tracking-wider text-[11px]">
+              Reservations & Inquiries
+            </h4>
+            <div className="space-y-1.5 leading-relaxed">
+              <p>
+                Phone:{' '}
+                <a href={`tel:${CONTACT_INFO.phone1Raw}`} className="underline hover:text-white transition-colors">
+                  {CONTACT_INFO.phone1}
+                </a>
+              </p>
+              <p>
+                WhatsApp:{' '}
+                <a 
+                  href={`https://api.whatsapp.com/send?phone=${CONTACT_INFO.whatsappNumber}&text=Hello%20Zion%20Inn%20Homestay`} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="underline hover:text-white transition-colors"
+                >
+                  +{CONTACT_INFO.whatsapp}
+                </a>
+              </p>
+              <p>
+                Email:{' '}
+                <a href={`mailto:${CONTACT_INFO.email}`} className="underline hover:text-white transition-colors">
+                  {CONTACT_INFO.email}
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-2 uppercase tracking-wider text-[11px]">
+              Nearby Sights & Transit
+            </h4>
+            <div className="space-y-1 leading-relaxed text-white/75">
+              <p>• Eraniel Railway Station (ERL) — 3.2 km (8 mins)</p>
+              <p>• Padmanabhapuram Wooden Palace — 5 km (12 mins)</p>
+              <p>• Muttom Rocky Beach & Lighthouse — 12 km (20 mins)</p>
+              <p>• Mathur Hanging Aqueduct — 8 km (18 mins)</p>
+            </div>
           </div>
         </div>
 
         {/* Bottom Row */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
           <p>
-            © {new Date().getFullYear()} Zion Inn Homestay. All rights reserved. Neyyoor, Kanyakumari.
+            © {new Date().getFullYear()} Zion Inn Homestay. All rights reserved. Neyyoor, Kanyakumari District, Tamil Nadu.
           </p>
 
           {/* Social Icons */}

@@ -4,9 +4,9 @@ import {
   Wifi,
   DoorOpen,
   Car,
-  UtensilsCrossed,
   Zap,
-  ShieldCheck
+  Sparkles,
+  Trees
 } from 'lucide-react';
 import { subtleFadeUp } from '../utils/animations';
 import { AMENITIES_LIST } from '../data/homestayData';
@@ -15,9 +15,9 @@ const iconMap = {
   Wifi: Wifi,
   DoorOpen: DoorOpen,
   Car: Car,
-  UtensilsCrossed: UtensilsCrossed,
+  Sparkles: Sparkles,
   Zap: Zap,
-  ShieldCheck: ShieldCheck
+  Trees: Trees
 };
 
 export default function Amenities() {

@@ -40,11 +40,19 @@ export default function MobileNavDrawer({
             {/* Top Bar */}
             <div>
               <div className="flex items-center justify-between pb-6 border-b border-[#EAE5DB]">
-                <div className="flex items-center gap-2.5">
+                <a 
+                  href="/"
+                  onClick={(e) => {
+                    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                    e.preventDefault();
+                    handleNavClick('home', null);
+                  }}
+                  className="flex items-center gap-2.5 cursor-pointer"
+                >
                   <img 
                     src="/images/logo.png" 
                     alt="Zion Inn Homestay" 
-                    className="w-8 h-7 object-contain"
+                    className="w-9 h-9 object-contain"
                   />
                   <div>
                     <span className="font-editorial text-base font-semibold tracking-wider text-[#1F2421] block leading-none">
@@ -54,7 +62,7 @@ export default function MobileNavDrawer({
                       HOMESTAY
                     </span>
                   </div>
-                </div>
+                </a>
 
                 <button
                   onClick={onClose}
@@ -67,42 +75,58 @@ export default function MobileNavDrawer({
 
               {/* Navigation Links */}
               <nav className="flex flex-col gap-5 pt-8 text-lg font-medium text-[#222623]">
-                <button
-                  type="button"
-                  onClick={() => handleNavClick('home', null)}
+                <a
+                  href="/"
+                  onClick={(e) => {
+                    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                    e.preventDefault();
+                    handleNavClick('home', null);
+                  }}
                   className={`text-left py-1 transition-colors ${
                     currentPage === 'home' ? 'text-[#3A4B3D] font-bold' : 'hover:text-[#3A4B3D]'
                   }`}
                 >
                   Home
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleNavClick('rooms', null)}
+                </a>
+                <a
+                  href="/rooms"
+                  onClick={(e) => {
+                    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                    e.preventDefault();
+                    handleNavClick('rooms', null);
+                  }}
                   className={`text-left py-1 transition-colors ${
                     currentPage === 'rooms' ? 'text-[#3A4B3D] font-bold' : 'hover:text-[#3A4B3D]'
                   }`}
                 >
                   Rooms & Suites
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleNavClick('gallery', null)}
+                </a>
+                <a
+                  href="/gallery"
+                  onClick={(e) => {
+                    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                    e.preventDefault();
+                    handleNavClick('gallery', null);
+                  }}
                   className={`text-left py-1 transition-colors ${
                     currentPage === 'gallery' ? 'text-[#3A4B3D] font-bold' : 'hover:text-[#3A4B3D]'
                   }`}
                 >
                   Gallery
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleNavClick('contact', null)}
+                </a>
+                <a
+                  href="/contact"
+                  onClick={(e) => {
+                    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                    e.preventDefault();
+                    handleNavClick('contact', null);
+                  }}
                   className={`text-left py-1 transition-colors ${
                     currentPage === 'contact' ? 'text-[#3A4B3D] font-bold' : 'hover:text-[#3A4B3D]'
                   }`}
                 >
                   Contact & Location
-                </button>
+                </a>
               </nav>
 
               {/* CTA Button */}

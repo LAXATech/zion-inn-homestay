@@ -63,10 +63,10 @@ export const AMENITIES_LIST = [
     iconName: 'Car'
   },
   {
-    id: 'kitchen',
-    name: 'Shared Kitchen',
-    desc: 'Fully equipped kitchen with refrigerator, stove, and essentials.',
-    iconName: 'UtensilsCrossed'
+    id: 'amenities',
+    name: 'Amenities',
+    desc: 'Hot water, electric kettle, toiletries, and thoughtful room essentials.',
+    iconName: 'Sparkles'
   },
   {
     id: 'power',
@@ -75,10 +75,10 @@ export const AMENITIES_LIST = [
     iconName: 'Zap'
   },
   {
-    id: 'safety',
-    name: 'Clean & Safe',
-    desc: 'Rigorous daily hygiene, clean linens, and warm trusted caretakers.',
-    iconName: 'ShieldCheck'
+    id: 'garden',
+    name: 'Garden',
+    desc: 'Lush outdoor greenery and peaceful open spaces to relax and unwind.',
+    iconName: 'Trees'
   }
 ];
 
@@ -134,6 +134,29 @@ export const CONTACT_INFO = {
   phone2: '+91 81484 37600',
   whatsapp: '918148437600',
   whatsappNumber: '918148437600',
-  email: 'stay@zioninnhomestay.com',
+  email: 'zioninn.bnb@gmail.com',
   googleMapsUrl: 'https://maps.google.com/?q=Neyyoor,+Kanyakumari+District,+Tamil+Nadu+629802'
 };
+
+export const HOMESTAY_FAQS = [
+  {
+    q: 'How far is Zion Inn Homestay from Eraniel Railway Station?',
+    a: 'Zion Inn is just 3.2 km (8 minutes drive) from Eraniel Railway Station (ERL). Local auto-rickshaws and taxis are readily available at the station, or we can assist in arranging a local driver to receive you.'
+  },
+  {
+    q: 'What are the check-in and check-out timings?',
+    a: 'Standard check-in is between 2:00 PM – 10:00 PM, and check-out is by 11:00 AM. Early check-in or late check-out is accommodated whenever the room schedule permits.'
+  },
+  {
+    q: 'Is high-speed Wi-Fi available for remote work?',
+    a: 'Yes, we provide dual-band high-speed fiber Wi-Fi throughout all rooms, verandas, and the garden courtyard, backed by uninterrupted solar and inverter power support.'
+  },
+  {
+    q: 'What amenities are included in each room?',
+    a: 'All rooms include private en-suite bathrooms with 24/7 hot water, an electric kettle with tea and coffee provisions, high-speed fiber Wi-Fi, 24/7 power backup, and private garden-facing verandas. Authentic local dining spots are also just minutes away.'
+  },
+  {
+    q: 'Is safe parking available on premises?',
+    a: 'Yes, we have secure, gated on-site parking for both cars and two-wheelers inside the homestay compound.'
+  }
+];

@@ -20,7 +20,7 @@ import {
   Compass
 } from 'lucide-react';
 import { subtleFadeUp } from '../utils/animations';
-import { CONTACT_INFO, POLICIES } from '../data/homestayData';
+import { CONTACT_INFO, POLICIES, HOMESTAY_FAQS } from '../data/homestayData';
 
 export default function ContactPage({ 
   onNavigateHome, 
@@ -65,28 +65,7 @@ export default function ContactPage({
     setFormSubmitted(true);
   };
 
-  const FAQS = [
-    {
-      q: 'How far is Zion Inn Homestay from Eraniel Railway Station?',
-      a: 'Zion Inn is just 3.2 km (8 minutes drive) from Eraniel Railway Station (ERL). Local auto-rickshaws and taxis are readily available at the station, or we can assist in arranging a local driver to receive you.'
-    },
-    {
-      q: 'What are the check-in and check-out timings?',
-      a: 'Standard check-in is between 2:00 PM – 10:00 PM, and check-out is by 11:00 AM. Early check-in or late check-out is accommodated whenever the room schedule permits.'
-    },
-    {
-      q: 'Is high-speed Wi-Fi available for remote work?',
-      a: 'Yes, we provide dual-band high-speed fiber Wi-Fi throughout all rooms, verandas, and the garden courtyard, backed by uninterrupted solar and inverter power support.'
-    },
-    {
-      q: 'Can we access the kitchen for cooking or warming meals?',
-      a: 'Yes! Guests have access to our shared ground-floor heritage kitchen equipped with a refrigerator, microwave, gas stove, and electric kettle, especially helpful for families with children.'
-    },
-    {
-      q: 'Is safe parking available on premises?',
-      a: 'Yes, we have secure, gated on-site parking for both cars and two-wheelers inside the homestay compound.'
-    }
-  ];
+  const FAQS = HOMESTAY_FAQS;
 
   return (
     <div className="min-h-screen bg-[#FBF9F5] text-[#222623] pt-24 sm:pt-28 pb-24">

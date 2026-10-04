@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowLeft, 
@@ -18,39 +18,75 @@ import { subtleFadeUp } from '../utils/animations';
 const GALLERY_ITEMS = [
   {
     id: 'hero-banner',
-    image: '/images/reception.jpg',
+    image: '/images/hero-banner2.jpg',
     title: 'The Veranda at Dawn',
     category: 'spaces',
     categoryLabel: 'Verandas & Gardens',
-    caption: 'Lush palms, gentle morning breezes, and peaceful open-air verandas overlooking tropical foliage.',
-    span: 'col-span-1 md:col-span-2 aspect-[16/9]'
+    caption: 'Lush palms, gentle morning breezes, and peaceful open-air verandas overlooking tropical foliage.'
   },
   {
-    id: 'ac-room',
+    id: 'ac-room-bed',
     image: '/images/ac-room1.jpg',
-    title: 'AC Room',
+    title: 'AC Room — King Bed',
     category: 'rooms',
     categoryLabel: 'Rooms & Suites',
-    caption: 'Handcrafted solid teakwood king bed, natural linen bedding, and soft morning sunlight.',
-    span: 'col-span-1 aspect-[4/3]'
+    caption: 'Handcrafted solid teakwood king bed, natural linen bedding, and tranquil morning garden views.'
   },
   {
-    id: 'simple-comforts',
-    image: '/images/simple-comforts.jpg',
-    title: 'Sunlit Reading Nook',
+    id: 'ac-room-tv',
+    image: '/images/ac-room1-tv.jpg',
+    title: 'AC Room — Lounge & Entertainment',
+    category: 'rooms',
+    categoryLabel: 'Rooms & Suites',
+    caption: 'Private viewing area with LED TV, work desk nook, and curated shelving.'
+  },
+  {
+    id: 'ac-room-ambience',
+    image: '/images/ac-room2.jpg',
+    title: 'AC Room — Spacious Layout',
+    category: 'rooms',
+    categoryLabel: 'Rooms & Suites',
+    caption: 'Air-conditioned comfort with garden cross-ventilation and natural morning light.'
+  },
+  {
+    id: 'non-ac-room-bed',
+    image: '/images/non-ac room.jpg',
+    title: 'Non-AC Room — Heritage Comfort',
+    category: 'rooms',
+    categoryLabel: 'Rooms & Suites',
+    caption: 'Breezy, tranquil bedroom crafted with warm wood furnishings and high ceilings.'
+  },
+  {
+    id: 'non-ac-room-view',
+    image: '/images/non-ac room2 view2.jpg',
+    title: 'Non-AC Room — Garden Outlook',
+    category: 'rooms',
+    categoryLabel: 'Rooms & Suites',
+    caption: 'Natural ventilation and peaceful views of the surrounding flowering gardens.'
+  },
+  {
+    id: 'bathroom-primary',
+    image: '/images/bathroom.jpg',
+    title: 'Attached En-Suite Bathroom',
+    category: 'rooms',
+    categoryLabel: 'Rooms & Suites',
+    caption: 'Spotless tiled bathroom with 24/7 hot water supply and premium fixtures.'
+  },
+  {
+    id: 'bathroom-secondary',
+    image: '/images/bathroom2.jpg',
+    title: 'Fresh Guest Washroom',
+    category: 'rooms',
+    categoryLabel: 'Rooms & Suites',
+    caption: 'Clean, sanitized bathroom with daily fresh towels and essential toiletries.'
+  },
+  {
+    id: 'reception-lobby',
+    image: '/images/reception.jpg',
+    title: 'Lobby & Welcoming Reception',
     category: 'spaces',
-    categoryLabel: 'Verandas & Gardens',
-    caption: 'Potted indoor plants, cozy armchair by the window, and a quiet corner for morning filter coffee.',
-    span: 'col-span-1 aspect-[4/3]'
-  },
-  {
-    id: 'non-ac-room',
-    image: '/images/deluxe-room.jpg',
-    title: 'Non-AC Room',
-    category: 'rooms',
-    categoryLabel: 'Rooms & Suites',
-    caption: 'Expansive sliding glass doors opening directly out to a private flowering garden terrace.',
-    span: 'col-span-1 md:col-span-2 aspect-[16/9]'
+    categoryLabel: 'The Homestay',
+    caption: 'Welcoming entrance space where host hospitality begins with cool refreshments.'
   },
   {
     id: 'the-space',
@@ -58,17 +94,15 @@ const GALLERY_ITEMS = [
     title: 'Heritage Garden Courtyard',
     category: 'spaces',
     categoryLabel: 'The Homestay',
-    caption: 'Paved stone pathways, tropical foliage, and outdoor cane seating under native fruit trees.',
-    span: 'col-span-1 aspect-[4/3]'
+    caption: 'Paved stone pathways, tropical foliage, and outdoor cane seating under native fruit trees.'
   },
   {
-    id: 'hero-facade',
-    image: '/images/hero.jpg',
-    title: 'Zion Inn Villa Entrance',
+    id: 'simple-comforts',
+    image: '/images/simple-comforts.jpg',
+    title: 'Sunlit Reading Nook',
     category: 'spaces',
-    categoryLabel: 'The Homestay',
-    caption: 'Warm terracotta finishes and welcoming architectural lines set back from the quiet village road.',
-    span: 'col-span-1 aspect-[4/3]'
+    categoryLabel: 'Verandas & Gardens',
+    caption: 'Potted indoor plants, cozy armchair by the window, and a quiet corner for morning filter coffee.'
   },
   {
     id: 'padmanabhapuram',
@@ -76,8 +110,7 @@ const GALLERY_ITEMS = [
     title: 'Padmanabhapuram Wooden Palace',
     category: 'excursions',
     categoryLabel: 'Nearby Sights',
-    caption: '16th-century wooden architectural marvel of the Travancore Maharajas, just 12 mins from Zion Inn.',
-    span: 'col-span-1 md:col-span-2 aspect-[16/9]'
+    caption: '16th-century wooden architectural marvel of the Travancore Maharajas, just 12 mins from Zion Inn.'
   },
   {
     id: 'muttom-beach',
@@ -85,8 +118,7 @@ const GALLERY_ITEMS = [
     title: 'Muttom Rocky Beach & Lighthouse',
     category: 'excursions',
     categoryLabel: 'Nearby Sights',
-    caption: 'A striking rocky coastline with a century-old lighthouse and sunset panoramas, 20 mins drive.',
-    span: 'col-span-1 aspect-[4/3]'
+    caption: 'A striking rocky coastline with a century-old lighthouse and sunset panoramas, 20 mins drive.'
   },
   {
     id: 'mathur-aqueduct',
@@ -94,8 +126,31 @@ const GALLERY_ITEMS = [
     title: 'Mathur Hanging Aqueduct',
     category: 'excursions',
     categoryLabel: 'Nearby Sights',
-    caption: 'Asia’s highest hanging trough aqueduct towering over lush coconut valleys, 18 mins away.',
-    span: 'col-span-1 aspect-[4/3]'
+    caption: 'Asia’s highest hanging trough aqueduct towering over lush coconut valleys, 18 mins away.'
+  },
+  {
+    id: 'villukuri-aqueduct',
+    image: '/images/villukuri-aqueduct.jpg',
+    title: 'Villukuri Aqueduct',
+    category: 'excursions',
+    categoryLabel: 'Nearby Sights',
+    caption: 'Historic canal water bridge (Thaneer Palam) carrying irrigation water above serene village roads.'
+  },
+  {
+    id: 'manichithrathazhu-viewpoint',
+    image: '/images/manichithrathazhu-viewpoint.jpg',
+    title: 'Manichithrathazhu View Point',
+    category: 'excursions',
+    categoryLabel: 'Nearby Sights',
+    caption: 'Elevated panoramic viewpoint with breathtaking vistas across misty Western Ghats hills and lush valleys.'
+  },
+  {
+    id: 'lemur-beach',
+    image: '/images/lemur-beach.jpg',
+    title: 'Lemur Beach',
+    category: 'excursions',
+    categoryLabel: 'Nearby Sights',
+    caption: 'Pristine coastal haven known for peaceful golden sands, coconut groves, and calm turquoise Arabian Sea shores.'
   }
 ];
 
@@ -103,10 +158,17 @@ export default function GalleryPage({ onNavigateHome, onNavigateRooms }) {
   const [activeTab, setActiveTab] = useState('all');
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
-  const filteredItems = GALLERY_ITEMS.filter((item) => {
-    if (activeTab === 'all') return true;
-    return item.category === activeTab;
-  });
+  const filteredItems = useMemo(() => {
+    if (activeTab === 'all') return GALLERY_ITEMS;
+    return GALLERY_ITEMS.filter((item) => item.category === activeTab);
+  }, [activeTab]);
+
+  const tabs = useMemo(() => [
+    { id: 'all', label: `All Photos (${GALLERY_ITEMS.length})`, icon: Camera },
+    { id: 'rooms', label: `Rooms & Suites (${GALLERY_ITEMS.filter(i => i.category === 'rooms').length})`, icon: BedDouble },
+    { id: 'spaces', label: `Verandas & Spaces (${GALLERY_ITEMS.filter(i => i.category === 'spaces').length})`, icon: Trees },
+    { id: 'excursions', label: `Nearby Excursions (${GALLERY_ITEMS.filter(i => i.category === 'excursions').length})`, icon: Compass }
+  ], []);
 
   // Lightbox keyboard controls
   useEffect(() => {
@@ -118,7 +180,7 @@ export default function GalleryPage({ onNavigateHome, onNavigateRooms }) {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxIndex]);
+  }, [lightboxIndex, filteredItems.length]);
 
   const handleNext = () => {
     if (lightboxIndex !== null) {
@@ -172,54 +234,64 @@ export default function GalleryPage({ onNavigateHome, onNavigateRooms }) {
           </p>
         </motion.div>
 
-        {/* Filter Pills */}
+        {/* Filter Pills with animated active indicator */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45, delay: 0.15 }}
           className="mt-8 flex flex-wrap items-center gap-2"
         >
-          {[
-              { id: 'all', label: 'All Photos (9)', icon: Camera },
-            { id: 'rooms', label: 'Rooms & Suites', icon: BedDouble },
-            { id: 'spaces', label: 'Verandas & Gardens', icon: Trees },
-            { id: 'excursions', label: 'Nearby Excursions', icon: Compass }
-          ].map((tab) => {
+          {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium transition-all cursor-pointer ${
+                className={`relative inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium transition-colors cursor-pointer ${
                   isActive
-                    ? 'bg-[#3A4B3D] text-[#FBF9F5] shadow-xs'
+                    ? 'text-[#FBF9F5]'
                     : 'bg-white text-[#3A423C] border border-[#EAE5DB] hover:bg-[#F5F2EB]'
                 }`}
               >
-                <Icon className="w-3.5 h-3.5" strokeWidth={1.5} />
-                <span>{tab.label}</span>
+                {isActive && (
+                  <motion.div
+                    layoutId="activeGalleryTabPill"
+                    className="absolute inset-0 bg-[#3A4B3D] rounded-full shadow-xs -z-0"
+                    transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                  />
+                )}
+                <span className="relative z-10 flex items-center gap-2">
+                  <Icon className="w-3.5 h-3.5" strokeWidth={1.5} />
+                  <span>{tab.label}</span>
+                </span>
               </button>
             );
           })}
         </motion.div>
       </div>
 
-      {/* Gallery Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8">
-        <motion.div 
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
-        >
-          <AnimatePresence>
+      {/* Gallery Grid with smooth tab transition */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 min-h-[420px]">
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={activeTab}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
+          >
             {filteredItems.map((item, index) => (
               <motion.div
                 key={item.id}
-                layout
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                transition={{ 
+                  duration: 0.28, 
+                  delay: Math.min(index * 0.035, 0.16), 
+                  ease: [0.22, 1, 0.36, 1] 
+                }}
                 onClick={() => setLightboxIndex(index)}
                 className="group relative rounded-3xl overflow-hidden bg-white border border-[#EAE5DB] shadow-xs hover:shadow-md cursor-pointer transition-all duration-300 flex flex-col"
               >
@@ -250,7 +322,7 @@ export default function GalleryPage({ onNavigateHome, onNavigateRooms }) {
                 {/* Caption Bar */}
                 <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between text-left">
                   <div>
-                    <h3 className="font-editorial text-lg sm:text-xl font-medium text-[#1F2421] mb-1">
+                    <h3 className="font-editorial text-lg sm:text-xl font-medium text-[#1F2421] mb-1 group-hover:text-[#3A4B3D] transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-xs text-[#5D645E] leading-relaxed line-clamp-2">
@@ -260,8 +332,8 @@ export default function GalleryPage({ onNavigateHome, onNavigateRooms }) {
                 </div>
               </motion.div>
             ))}
-          </AnimatePresence>
-        </motion.div>
+          </motion.div>
+        </AnimatePresence>
       </section>
 
       {/* Bottom CTA Banner */}

@@ -9,6 +9,7 @@ export default function Navbar({
   isMobileMenuOpen 
 }) {
   const handleLinkClick = (e, page, targetHash) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     e.preventDefault();
     if (onNavigate) {
       onNavigate(page, targetHash);
@@ -23,14 +24,14 @@ export default function Navbar({
       >
         {/* Brand Logo matching reference */}
         <a 
-          href="#/" 
+          href="/" 
           onClick={(e) => handleLinkClick(e, 'home', null)}
           className="flex items-center gap-2.5 group cursor-pointer"
         >
           <img 
             src="/images/logo.png" 
             alt="Zion Inn Homestay Logo" 
-            className="w-8 h-7 sm:w-9 sm:h-8 object-contain transition-transform group-hover:scale-105"
+            className="w-8 h-8 sm:w-9 sm:h-9 object-contain transition-transform group-hover:scale-105"
           />
           <div className="flex flex-col text-left">
             <span className="font-editorial text-base sm:text-lg tracking-[0.1em] font-semibold text-[#1F2421] leading-none uppercase">
@@ -44,8 +45,8 @@ export default function Navbar({
 
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-6 text-[14px] font-medium text-[#2C322D]">
-          <button
-            type="button"
+          <a
+            href="/"
             onClick={(e) => handleLinkClick(e, 'home', null)}
             className={`py-1 cursor-pointer transition-colors relative ${
               currentPage === 'home' 
@@ -54,9 +55,9 @@ export default function Navbar({
             }`}
           >
             Home
-          </button>
-          <button 
-            type="button"
+          </a>
+          <a 
+            href="/rooms"
             onClick={(e) => handleLinkClick(e, 'rooms', null)}
             className={`py-1 cursor-pointer transition-colors relative ${
               currentPage === 'rooms' 
@@ -65,9 +66,9 @@ export default function Navbar({
             }`}
           >
             Rooms
-          </button>
-          <button 
-            type="button"
+          </a>
+          <a 
+            href="/gallery"
             onClick={(e) => handleLinkClick(e, 'gallery', null)}
             className={`py-1 cursor-pointer transition-colors relative ${
               currentPage === 'gallery' 
@@ -76,9 +77,9 @@ export default function Navbar({
             }`}
           >
             Gallery
-          </button>
-          <button 
-            type="button"
+          </a>
+          <a 
+            href="/contact"
             onClick={(e) => handleLinkClick(e, 'contact', null)}
             className={`py-1 cursor-pointer transition-colors relative ${
               currentPage === 'contact' 
@@ -87,7 +88,7 @@ export default function Navbar({
             }`}
           >
             Contact
-          </button>
+          </a>
         </div>
 
         {/* Action Controls */}

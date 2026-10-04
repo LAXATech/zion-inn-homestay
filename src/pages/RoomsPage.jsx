@@ -233,7 +233,12 @@ export default function RoomsPage({
                               : 'border-transparent opacity-75 hover:opacity-100'
                           }`}
                         >
-                          <img src={thumb} alt="" className="w-full h-full object-cover" />
+                          <img 
+                            src={thumb} 
+                            alt={`${room.name} interior photo ${idx + 1}`} 
+                            className="w-full h-full object-cover" 
+                            loading="lazy"
+                          />
                         </button>
                       ))}
                     </div>

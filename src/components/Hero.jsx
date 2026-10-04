@@ -56,6 +56,7 @@ export default function Hero({
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1.0] }}
           loading="eager"
+          fetchPriority="high"
         />
         {/* Soft light gradient on the left for maximum text contrast and legibility */}
         <div className="absolute inset-0 bg-gradient-to-r from-white/75 via-white/35 to-transparent sm:w-[65%]" />
