@@ -186,7 +186,7 @@ export default function App() {
           <>
             <SEO 
               title="Rooms & Rates | Zion Inn Homestay Neyyoor, Kanyakumari"
-              description="Spacious AC & Non-AC rooms with handcrafted king beds, en-suite bathrooms, fiber Wi-Fi & verandas in Neyyoor. Direct booking rates from ₹1500."
+              description="Spacious AC & Non-AC rooms with handcrafted king beds, en-suite bathrooms, fiber Wi-Fi & verandas in Neyyoor. Direct booking rates from ₹1000."
               path="/rooms"
               schema={getRoomsSchema(rooms)}
             />

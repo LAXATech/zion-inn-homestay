@@ -11,11 +11,11 @@ export function getLodgingBusinessSchema() {
     url: `${BASE_URL}/`,
     telephone: '+918148437600',
     email: 'zioninn.bnb@gmail.com',
-    priceRange: '₹1500 - ₹2000',
+    priceRange: '₹1000 - ₹1200',
     checkinTime: '14:00',
     checkoutTime: '11:00',
     image: [
-      `${BASE_URL}/images/hero-banner2.jpg`,
+      `${BASE_URL}/images/hero-banner2.png`,
       `${BASE_URL}/images/ac-room1.jpg`,
       `${BASE_URL}/images/the-space.jpg`,
       `${BASE_URL}/images/reception.jpg`
@@ -55,7 +55,7 @@ export function getLodgingBusinessSchema() {
             bed: '1 King Bed (6ft)',
             occupancy: { '@type': 'QuantitativeValue', value: 2, unitText: 'person' }
           },
-          price: 2000,
+          price: 1200,
           priceCurrency: 'INR'
         },
         {
@@ -67,7 +67,7 @@ export function getLodgingBusinessSchema() {
             bed: '1 King Bed (6ft)',
             occupancy: { '@type': 'QuantitativeValue', value: 2, unitText: 'person' }
           },
-          price: 1500,
+          price: 1000,
           priceCurrency: 'INR'
         }
       ]

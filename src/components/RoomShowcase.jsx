@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, BedDouble, Wifi, DoorOpen, Bath, Wind } from 'lucide-react';
+import { ArrowRight, BedDouble, Wifi, DoorOpen, Bath } from 'lucide-react';
 import { subtleFadeUp } from '../utils/animations';
 
 export default function RoomShowcase({ rooms, onSelectRoom, onQuickInquire, onViewAllRooms }) {

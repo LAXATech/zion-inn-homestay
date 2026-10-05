@@ -5,7 +5,7 @@ export const INITIAL_ROOMS = [
     roomType: 'ac',
     view: 'Garden View',
     capacity: 2,
-    price: 2000,
+    price: 1200,
     status: 'Available',
     image: '/images/ac-room1.jpg',
     gallery: [
@@ -27,7 +27,7 @@ export const INITIAL_ROOMS = [
     roomType: 'non-ac',
     view: 'Garden View',
     capacity: 2,
-    price: 1500,
+    price: 1000,
     status: 'Available',
     image: '/images/non-ac room2 view2.jpg',
     gallery: [
@@ -88,7 +88,7 @@ export const ATTRACTIONS_LIST = [
     name: 'Padmanabhapuram Palace',
     distance: '5 km',
     category: 'History & Culture',
-    image: '/images/padmanabhapuram.jpg',
+    image: '/images/padmanabhapuram.webp',
     description: 'Renowned 16th-century wooden palace of the Travancore Maharajas, famed for intricate wood carvings, cool black granite floors, and regal heritage.',
     driveTime: '12 min drive',
     bestTime: 'Morning (9:00 AM - 1:00 PM)'
@@ -98,7 +98,7 @@ export const ATTRACTIONS_LIST = [
     name: 'Muttom Beach',
     distance: '12 km',
     category: 'Coastline',
-    image: '/images/muttom-beach.jpg',
+    image: '/images/muttom-beach.webp',
     description: 'A striking rocky beach featuring an iconic century-old colonial lighthouse, dramatic sea waves, panoramic sunset vistas, and tranquil shores.',
     driveTime: '22 min drive',
     bestTime: 'Sunset (4:30 PM - 6:30 PM)'
@@ -108,7 +108,7 @@ export const ATTRACTIONS_LIST = [
     name: 'Mathur Aqueduct',
     distance: '8 km',
     category: 'Scenic Spot',
-    image: '/images/mathur-aqueduct.jpg',
+    image: '/images/mathur-aqueduct.webp',
     description: 'One of Asia’s longest and highest hanging trough aqueducts, towering 115 ft above dense green coconut groves with breathtaking valley vistas.',
     driveTime: '18 min drive',
     bestTime: 'Late Afternoon'

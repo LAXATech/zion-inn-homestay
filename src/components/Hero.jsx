@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Users, ChevronRight, ChevronDown, Check } from 'lucide-react';
+import { Calendar, Users, ChevronRight, Check } from 'lucide-react';
 import { subtleFadeUp } from '../utils/animations';
 
 export default function Hero({ 
@@ -49,7 +49,7 @@ export default function Hero({
       {/* Background Hero Banner matching reference image */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
         <motion.img
-          src="/images/hero-banner2.jpg"
+          src="/images/hero-banner2.png"
           alt="Zion Inn Homestay Neyyoor Veranda"
           className="w-full h-full object-cover object-[center_right] sm:object-center"
           initial={{ scale: 1.03, opacity: 0 }}
@@ -86,31 +86,31 @@ export default function Hero({
           </p>
         </motion.div>
 
-        {/* Floating Search Bar centered horizontally with compact, elegant width */}
+        {/* Floating Search Bar centered horizontally with comfortable width to prevent button overflow */}
         <motion.div 
-          className="w-full max-w-md sm:max-w-[530px] mx-auto text-left mb-2 sm:mb-4"
+          className="w-full max-w-lg sm:max-w-[620px] mx-auto text-left mb-2 sm:mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] }}
         >
-          <div className="bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full p-2 sm:p-2.5 shadow-[0_12px_40px_rgba(0,0,0,0.1)] border border-[#EAE5DB]/90 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 sm:gap-1.5">
+          <div className="bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full p-2 sm:py-1.5 sm:pl-3.5 sm:pr-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.1)] border border-[#EAE5DB]/90 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 sm:gap-1.5">
             {/* Check-in – Check-out Picker with tight, harmonious alignment and reliable Popover */}
-            <div className="relative">
+            <div className="relative shrink-0">
               <button
                 type="button"
                 onClick={() => {
                   setIsDateDropdownOpen(!isDateDropdownOpen);
                   setIsGuestDropdownOpen(false);
                 }}
-                className="w-full flex items-center justify-between gap-2.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl sm:rounded-full hover:bg-stone-50 transition-colors cursor-pointer text-left outline-none focus:outline-none"
+                className="w-full sm:w-auto flex items-center justify-between gap-2.5 px-2.5 sm:px-3 py-1.5 rounded-xl sm:rounded-full hover:bg-stone-50 transition-colors cursor-pointer text-left outline-none focus:outline-none"
               >
                 <div className="flex items-center gap-2.5">
                   <Calendar className="w-4 h-4 text-[#3A4B3D] shrink-0" strokeWidth={1.5} />
                   <div className="flex flex-col text-left">
-                    <span className="text-[9.5px] uppercase tracking-wider text-[#6B726C] font-semibold leading-none mb-1">
+                    <span className="text-[9.5px] uppercase tracking-wider text-[#6B726C] font-semibold leading-none mb-1 whitespace-nowrap">
                       Check in – Check out
                     </span>
-                    <span className="text-xs sm:text-[13px] font-semibold text-[#1F2421] leading-tight">
+                    <span className="text-xs sm:text-[13px] font-semibold text-[#1F2421] leading-tight whitespace-nowrap">
                       {formattedDateRange}
                     </span>
                   </div>
@@ -170,16 +170,16 @@ export default function Hero({
             </div>
 
             {/* Vertical Divider */}
-            <div className="hidden sm:block w-[1px] h-7 bg-[#EAE5DB]" />
+            <div className="hidden sm:block w-[1px] h-7 bg-[#EAE5DB] shrink-0" />
 
             {/* Guests Selector matching reference */}
-            <div className="relative">
+            <div className="relative shrink-0">
               <button
                 type="button"
                 onClick={() => setIsGuestDropdownOpen(!isGuestDropdownOpen)}
-                className="w-full sm:w-auto flex items-center justify-between gap-3 px-4 py-2 rounded-xl sm:rounded-full hover:bg-stone-50 transition-colors text-left cursor-pointer outline-none focus:outline-none focus:ring-0 focus-visible:outline-none"
+                className="w-full sm:w-auto flex items-center justify-between gap-2.5 px-3 py-1.5 rounded-xl sm:rounded-full hover:bg-stone-50 transition-colors text-left cursor-pointer outline-none focus:outline-none focus:ring-0 focus-visible:outline-none"
               >
-                <div className="flex items-center gap-2.5">
+                <div className="flex items-center gap-2">
                   <Users className="w-4 h-4 text-[#3A4B3D] shrink-0" strokeWidth={1.5} />
                   <span className="text-xs sm:text-sm font-semibold text-[#1F2421] whitespace-nowrap">
                     {guestCount} {guestCount === 1 ? 'Guest' : 'Guests'}
@@ -221,7 +221,7 @@ export default function Hero({
             {/* Check Availability CTA Button matching reference */}
             <button
               onClick={onCheckAvailability}
-              className="px-6 py-3 rounded-xl sm:rounded-full bg-[#3A4B3D] text-[#FBF9F5] text-xs sm:text-sm font-medium hover:bg-[#2D3B30] active:scale-[0.98] transition-all whitespace-nowrap shadow-sm text-center cursor-pointer"
+              className="px-5 sm:px-5 py-2.5 sm:py-2.5 rounded-xl sm:rounded-full bg-[#3A4B3D] text-[#FBF9F5] text-xs sm:text-sm font-medium hover:bg-[#2D3B30] active:scale-[0.98] transition-all whitespace-nowrap shadow-sm text-center cursor-pointer shrink-0"
             >
               Check Availability
             </button>

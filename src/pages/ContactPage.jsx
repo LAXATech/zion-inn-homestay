@@ -4,23 +4,18 @@ import {
   ArrowLeft, 
   MessageCircle, 
   Phone, 
-  Mail, 
   MapPin, 
   Navigation, 
   Train, 
   Plane, 
-  Car, 
-  Clock, 
   Calendar, 
   Users, 
-  Send, 
   CheckCircle2, 
   ChevronDown, 
-  Info,
   Compass
 } from 'lucide-react';
 import { subtleFadeUp } from '../utils/animations';
-import { CONTACT_INFO, POLICIES, HOMESTAY_FAQS } from '../data/homestayData';
+import { CONTACT_INFO, HOMESTAY_FAQS } from '../data/homestayData';
 
 export default function ContactPage({ 
   onNavigateHome, 
@@ -305,8 +300,8 @@ export default function ContactPage({
                     onChange={(e) => setFormData({ ...formData, roomType: e.target.value })}
                     className="w-full px-4 py-3 rounded-2xl bg-[#FBF9F5] border border-[#EAE5DB] text-xs sm:text-sm text-[#1F2421] focus:outline-none focus:border-[#3A4B3D] cursor-pointer"
                   >
-                    <option value="AC Room">AC Room (Garden View, 1 King Bed, 2 Guests) – ₹2,000/night</option>
-                    <option value="Non-AC Room">Non-AC Room (Garden View, 1 King Bed, 2 Guests) – ₹1,500/night</option>
+                    <option value="AC Room">AC Room (Garden View, 1 King Bed, 2 Guests) – ₹1,200/night</option>
+                    <option value="Non-AC Room">Non-AC Room (Garden View, 1 King Bed, 2 Guests) – ₹1,000/night</option>
                     <option value="Full Homestay">Entire Homestay Property (Up to 9 Guests)</option>
                   </select>
                 </div>

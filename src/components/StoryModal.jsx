@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Heart, Shield, Sparkles, MapPin } from 'lucide-react';
+import { X, Heart, Shield, MapPin } from 'lucide-react';
 import { modalTransition } from '../utils/animations';
 
 export default function StoryModal({ isOpen, onClose }) {

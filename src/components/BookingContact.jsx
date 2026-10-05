@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   MessageCircle, 
   Phone, 
   MapPin, 
   ExternalLink, 
-  Send, 
-  Check, 
-  Clock, 
-  Calendar,
-  Users
+  Check 
 } from 'lucide-react';
 import { subtleFadeUp } from '../utils/animations';
 import { CONTACT_INFO } from '../data/homestayData';
@@ -22,18 +18,10 @@ export default function BookingContact({
   guestCount 
 }) {
   const [guestName, setGuestName] = useState('');
-  const [activeRoomId, setActiveRoomId] = useState(selectedRoom?.id || 'ac-room');
-  const [customDates, setCustomDates] = useState('');
-  const [customMessage, setCustomMessage] = useState('');
-  const [isCopied, setIsCopied] = useState(false);
+  const [selectedRoomIdOverride, setSelectedRoomIdOverride] = useState(null);
+  const [userEditedMessage, setUserEditedMessage] = useState(null);
 
-  // Sync active room if prop changes
-  useEffect(() => {
-    if (selectedRoom) {
-      setActiveRoomId(selectedRoom.id);
-    }
-  }, [selectedRoom]);
-
+  const activeRoomId = selectedRoomIdOverride || selectedRoom?.id || 'ac-room';
   const activeRoom = rooms.find(r => r.id === activeRoomId) || rooms[0];
 
   const formatDateStr = (dateStr) => {
@@ -46,22 +34,19 @@ export default function BookingContact({
     }
   };
 
-  // Generate dynamic message matching mockup
-  useEffect(() => {
-    const datesStr = (checkInDate && checkOutDate)
-      ? `from ${formatDateStr(checkInDate)} to ${formatDateStr(checkOutDate)}`
-      : 'from Oct 12 to Oct 14';
+  const datesStr = (checkInDate && checkOutDate)
+    ? `from ${formatDateStr(checkInDate)} to ${formatDateStr(checkOutDate)}`
+    : 'from Oct 12 to Oct 14';
 
-    const countStr = guestCount ? `${guestCount} guests` : '2 guests';
-    const nameGreeting = guestName.trim() ? ` My name is ${guestName.trim()}.` : '';
+  const countStr = guestCount ? `${guestCount} guests` : '2 guests';
+  const nameGreeting = guestName.trim() ? ` My name is ${guestName.trim()}.` : '';
+  const generatedMessage = `Hi Zion Inn, I'd like to check availability for the ${activeRoom?.name || 'AC Room'} ${datesStr} for ${countStr}.${nameGreeting}`;
 
-    const autoMsg = `Hi Zion Inn, I'd like to check availability for the ${activeRoom?.name || 'AC Room'} ${datesStr} for ${countStr}.${nameGreeting}`;
-    setCustomMessage(autoMsg);
-  }, [activeRoomId, guestName, checkInDate, checkOutDate, guestCount, activeRoom?.name]);
+  const currentMessage = userEditedMessage !== null ? userEditedMessage : generatedMessage;
 
   const handleOpenWhatsApp = (e) => {
     if (e && e.preventDefault) e.preventDefault();
-    const encoded = encodeURIComponent(customMessage);
+    const encoded = encodeURIComponent(currentMessage);
     window.location.href = `https://api.whatsapp.com/send?phone=${CONTACT_INFO.whatsappNumber}&text=${encoded}`;
   };
 
@@ -146,7 +131,7 @@ export default function BookingContact({
                 </label>
                 <select
                   value={activeRoomId}
-                  onChange={(e) => setActiveRoomId(e.target.value)}
+                  onChange={(e) => setSelectedRoomIdOverride(e.target.value)}
                   className="w-full px-4 py-2.5 rounded-xl border border-[#EAE5DB] bg-[#FBF9F5] text-sm text-[#1F2421] focus:outline-none focus:border-[#3A4B3D] focus:ring-1 focus:ring-[#3A4B3D] transition-all cursor-pointer"
                 >
                   {rooms.map((r) => (
@@ -164,8 +149,8 @@ export default function BookingContact({
                 </label>
                 <textarea
                   rows={3}
-                  value={customMessage}
-                  onChange={(e) => setCustomMessage(e.target.value)}
+                  value={currentMessage}
+                  onChange={(e) => setUserEditedMessage(e.target.value)}
                   className="w-full px-4 py-2.5 rounded-xl border border-[#EAE5DB] bg-[#FBF9F5] text-xs sm:text-sm text-[#1F2421] focus:outline-none focus:border-[#3A4B3D] focus:ring-1 focus:ring-[#3A4B3D] transition-all resize-none leading-relaxed"
                 />
               </div>

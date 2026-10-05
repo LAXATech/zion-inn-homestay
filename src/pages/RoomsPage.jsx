@@ -5,20 +5,16 @@ import {
   Users, 
   Maximize2, 
   Check, 
-  Sparkles, 
   Calendar, 
   MessageCircle, 
   ArrowLeft, 
-  ChevronRight, 
   ShieldCheck, 
   Coffee, 
   Wifi, 
   Zap, 
-  Clock, 
   Car, 
   UtensilsCrossed,
-  Info,
-  Eye
+  Info
 } from 'lucide-react';
 import { subtleFadeUp } from '../utils/animations';
 import { POLICIES, CONTACT_INFO } from '../data/homestayData';
@@ -32,7 +28,7 @@ export default function RoomsPage({
   checkOutDate, 
   setCheckOutDate, 
   guestCount, 
-  setGuestCount
+  setGuestCount: _setGuestCount
 }) {
   const [selectedFilter, setSelectedFilter] = useState('all'); // 'all' | 'ac' | 'non-ac'
   const [activeGalleryIndices, setActiveGalleryIndices] = useState({});
@@ -78,7 +74,7 @@ export default function RoomsPage({
       `• Estimated Total: ₹${totalEst.toLocaleString('en-IN')}\n\n` +
       `Could you please confirm availability and advance payment details? Thank you!`
     );
-    window.location.href = `https://api.whatsapp.com/send?phone=${CONTACT_INFO.whatsapp}&text=${message}`;
+    window.location.assign(`https://api.whatsapp.com/send?phone=${CONTACT_INFO.whatsapp}&text=${message}`);
   };
 
   return (
@@ -173,7 +169,7 @@ export default function RoomsPage({
 
       {/* Main Section: Detailed Room Showcase Cards */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8 space-y-12 sm:space-y-16">
-        {filteredRooms.map((room, index) => {
+        {filteredRooms.map((room) => {
           const activeIndex = activeGalleryIndices[room.id] || 0;
           const currentImage = room.gallery?.[activeIndex] || room.image;
           const totalEstimate = room.price * nights;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowLeft, 
@@ -6,7 +6,6 @@ import {
   ChevronLeft, 
   ChevronRight, 
   Maximize2, 
-  Sparkles, 
   BedDouble, 
   Trees, 
   Compass, 
@@ -18,7 +17,7 @@ import { subtleFadeUp } from '../utils/animations';
 const GALLERY_ITEMS = [
   {
     id: 'hero-banner',
-    image: '/images/hero-banner2.jpg',
+    image: '/images/hero-banner2.png',
     title: 'The Veranda at Dawn',
     category: 'spaces',
     categoryLabel: 'Verandas & Gardens',
@@ -106,7 +105,7 @@ const GALLERY_ITEMS = [
   },
   {
     id: 'padmanabhapuram',
-    image: '/images/padmanabhapuram.jpg',
+    image: '/images/padmanabhapuram.webp',
     title: 'Padmanabhapuram Wooden Palace',
     category: 'excursions',
     categoryLabel: 'Nearby Sights',
@@ -114,7 +113,7 @@ const GALLERY_ITEMS = [
   },
   {
     id: 'muttom-beach',
-    image: '/images/muttom-beach.jpg',
+    image: '/images/muttom-beach.webp',
     title: 'Muttom Rocky Beach & Lighthouse',
     category: 'excursions',
     categoryLabel: 'Nearby Sights',
@@ -122,7 +121,7 @@ const GALLERY_ITEMS = [
   },
   {
     id: 'mathur-aqueduct',
-    image: '/images/mathur-aqueduct.jpg',
+    image: '/images/mathur-aqueduct.webp',
     title: 'Mathur Hanging Aqueduct',
     category: 'excursions',
     categoryLabel: 'Nearby Sights',
@@ -130,7 +129,7 @@ const GALLERY_ITEMS = [
   },
   {
     id: 'villukuri-aqueduct',
-    image: '/images/villukuri-aqueduct.jpg',
+    image: '/images/villukuri-aqueduct.webp',
     title: 'Villukuri Aqueduct',
     category: 'excursions',
     categoryLabel: 'Nearby Sights',
@@ -138,7 +137,7 @@ const GALLERY_ITEMS = [
   },
   {
     id: 'manichithrathazhu-viewpoint',
-    image: '/images/manichithrathazhu-viewpoint.jpg',
+    image: '/images/manichithrathazhu-viewpoint.webp',
     title: 'Manichithrathazhu View Point',
     category: 'excursions',
     categoryLabel: 'Nearby Sights',
@@ -146,11 +145,19 @@ const GALLERY_ITEMS = [
   },
   {
     id: 'lemur-beach',
-    image: '/images/lemur-beach.jpg',
+    image: '/images/lemur-beach.webp',
     title: 'Lemur Beach',
     category: 'excursions',
     categoryLabel: 'Nearby Sights',
     caption: 'Pristine coastal haven known for peaceful golden sands, coconut groves, and calm turquoise Arabian Sea shores.'
+  },
+  {
+    id: 'colachel-harbour',
+    image: '/images/colachel-harbour-viewpoint.jpg',
+    title: 'Colachel Harbour View Point',
+    category: 'excursions',
+    categoryLabel: 'Nearby Sights',
+    caption: 'Historic coastal natural harbour and scenic breakwater viewpoint overlooking active fishing vessels and expansive Arabian Sea horizons.'
   }
 ];
 
@@ -170,6 +177,18 @@ export default function GalleryPage({ onNavigateHome, onNavigateRooms }) {
     { id: 'excursions', label: `Nearby Excursions (${GALLERY_ITEMS.filter(i => i.category === 'excursions').length})`, icon: Compass }
   ], []);
 
+  const handleNext = useCallback(() => {
+    if (lightboxIndex !== null) {
+      setLightboxIndex((prev) => (prev + 1) % filteredItems.length);
+    }
+  }, [lightboxIndex, filteredItems.length]);
+
+  const handlePrev = useCallback(() => {
+    if (lightboxIndex !== null) {
+      setLightboxIndex((prev) => (prev - 1 + filteredItems.length) % filteredItems.length);
+    }
+  }, [lightboxIndex, filteredItems.length]);
+
   // Lightbox keyboard controls
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -180,19 +199,7 @@ export default function GalleryPage({ onNavigateHome, onNavigateRooms }) {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxIndex, filteredItems.length]);
-
-  const handleNext = () => {
-    if (lightboxIndex !== null) {
-      setLightboxIndex((prev) => (prev + 1) % filteredItems.length);
-    }
-  };
-
-  const handlePrev = () => {
-    if (lightboxIndex !== null) {
-      setLightboxIndex((prev) => (prev - 1 + filteredItems.length) % filteredItems.length);
-    }
-  };
+  }, [lightboxIndex, handleNext, handlePrev]);
 
   return (
     <div className="min-h-screen bg-[#FBF9F5] text-[#222623] pt-24 sm:pt-28 pb-24">

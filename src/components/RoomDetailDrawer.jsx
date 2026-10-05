@@ -9,10 +9,7 @@ import {
   Clock, 
   Ban, 
   CigaretteOff, 
-  MessageCircle, 
-  Check, 
-  Calendar,
-  Sparkles
+  MessageCircle 
 } from 'lucide-react';
 import { CONTACT_INFO, POLICIES } from '../data/homestayData';
 

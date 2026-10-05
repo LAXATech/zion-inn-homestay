@@ -157,7 +157,7 @@ const routes = [
     path: '/rooms',
     outputPath: path.join(distDir, 'rooms/index.html'),
     title: 'Rooms & Rates | Zion Inn Homestay Neyyoor, Kanyakumari',
-    description: 'Spacious AC & Non-AC rooms with handcrafted king beds, en-suite bathrooms, fiber Wi-Fi & verandas in Neyyoor. Direct booking rates from ₹1500.',
+    description: 'Spacious AC & Non-AC rooms with handcrafted king beds, en-suite bathrooms, fiber Wi-Fi & verandas in Neyyoor. Direct booking rates from ₹1000.',
     canonical: `${BASE_URL}/rooms`,
     schema: getRoomsSchema(INITIAL_ROOMS),
     content: `
@@ -219,15 +219,15 @@ const routes = [
             <figcaption class="text-xs text-[#5D645E] mt-2 text-center">Lush Flowering Greenery</figcaption>
           </figure>
           <figure class="p-2 bg-white rounded-2xl border border-[#EAE5DB]">
-            <img src="/images/padmanabhapuram.jpg" alt="Padmanabhapuram Palace near Neyyoor" class="w-full h-48 object-cover rounded-xl" />
+            <img src="/images/padmanabhapuram.webp" alt="Padmanabhapuram Palace near Neyyoor" class="w-full h-48 object-cover rounded-xl" />
             <figcaption class="text-xs text-[#5D645E] mt-2 text-center">Padmanabhapuram Palace (5 km)</figcaption>
           </figure>
           <figure class="p-2 bg-white rounded-2xl border border-[#EAE5DB]">
-            <img src="/images/muttom-beach.jpg" alt="Muttom Beach and Lighthouse near Neyyoor" class="w-full h-48 object-cover rounded-xl" />
+            <img src="/images/muttom-beach.webp" alt="Muttom Beach and Lighthouse near Neyyoor" class="w-full h-48 object-cover rounded-xl" />
             <figcaption class="text-xs text-[#5D645E] mt-2 text-center">Muttom Beach &amp; Lighthouse (12 km)</figcaption>
           </figure>
           <figure class="p-2 bg-white rounded-2xl border border-[#EAE5DB]">
-            <img src="/images/mathur-aqueduct.jpg" alt="Mathur Hanging Aqueduct near Neyyoor" class="w-full h-48 object-cover rounded-xl" />
+            <img src="/images/mathur-aqueduct.webp" alt="Mathur Hanging Aqueduct near Neyyoor" class="w-full h-48 object-cover rounded-xl" />
             <figcaption class="text-xs text-[#5D645E] mt-2 text-center">Mathur Hanging Aqueduct (8 km)</figcaption>
           </figure>
         </div>

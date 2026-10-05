@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, MapPin, Compass, ExternalLink } from 'lucide-react';
+import { ArrowRight, MapPin, ExternalLink } from 'lucide-react';
 import { subtleFadeUp } from '../utils/animations';
 import { ATTRACTIONS_LIST } from '../data/homestayData';
 
