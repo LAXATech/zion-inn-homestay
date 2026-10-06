@@ -12,7 +12,8 @@ import {
   Users, 
   CheckCircle2, 
   ChevronDown, 
-  Compass
+  Compass,
+  ShieldCheck
 } from 'lucide-react';
 import { subtleFadeUp } from '../utils/animations';
 import { CONTACT_INFO, HOMESTAY_FAQS } from '../data/homestayData';
@@ -90,9 +91,15 @@ export default function ContactPage({
           variants={subtleFadeUp}
           className="text-left max-w-3xl"
         >
-          <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#5D645E] mb-2 block">
-            REACH OUT TO US
-          </span>
+          <div className="flex flex-wrap items-center gap-2.5 mb-2">
+            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#5D645E]">
+              REACH OUT TO US
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-50 text-[11px] font-semibold text-emerald-800 border border-emerald-200/80">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" strokeWidth={2} />
+              Ministry of Tourism Approved
+            </span>
+          </div>
           <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-[#1F2421] leading-tight mb-4">
             We'd Love to Welcome You
           </h1>
@@ -152,7 +159,14 @@ export default function ContactPage({
                   href={`tel:${CONTACT_INFO.phone1Raw}`}
                   className="flex items-center justify-between text-xs font-semibold text-[#1F2421] hover:text-[#3A4B3D] p-2 rounded-xl hover:bg-[#F5F2EB] transition-colors"
                 >
-                  <span>Host & Caretaker: {CONTACT_INFO.phone1}</span>
+                  <span>Primary: {CONTACT_INFO.phone1}</span>
+                  <span className="text-[11px] font-normal text-[#5D645E]">Call →</span>
+                </a>
+                <a
+                  href={`tel:${CONTACT_INFO.phone2Raw}`}
+                  className="flex items-center justify-between text-xs font-semibold text-[#1F2421] hover:text-[#3A4B3D] p-2 rounded-xl hover:bg-[#F5F2EB] transition-colors"
+                >
+                  <span>Secondary: {CONTACT_INFO.phone2}</span>
                   <span className="text-[11px] font-normal text-[#5D645E]">Call →</span>
                 </a>
               </div>

@@ -81,7 +81,7 @@ export default function RoomShowcase({ rooms, onSelectRoom, onQuickInquire, onVi
 
               {/* Bottom right: Size tag */}
               <div className="absolute bottom-3 right-3 glass-panel px-2.5 py-0.5 rounded-full text-[11px] font-medium text-[#1F2421] shadow-xs">
-                {room.size || '280 sq.ft'}
+                {room.size || '180 sq.ft'}
               </div>
             </div>
 
@@ -119,6 +119,9 @@ export default function RoomShowcase({ rooms, onSelectRoom, onQuickInquire, onVi
                     <Bath className="w-3.5 h-3.5 text-[#3A4B3D]" strokeWidth={1.5} />
                     Attached Bath
                   </span>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 text-[11px] font-semibold border border-emerald-100/80">
+                    Two kids go free
+                  </span>
                 </div>
               </div>
 
@@ -134,6 +137,9 @@ export default function RoomShowcase({ rooms, onSelectRoom, onQuickInquire, onVi
                     </span>
                     <span className="text-xs text-[#5D645E]">/ night</span>
                   </div>
+                  <span className="text-[11px] text-[#3A4B3D] font-medium mt-0.5">
+                    2 Adults • Two kids go free
+                  </span>
                 </div>
 
                 <div className="flex items-center gap-2">

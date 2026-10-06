@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Users, ChevronRight, Check } from 'lucide-react';
+import { Calendar, Users, ChevronRight, Check, ShieldCheck } from 'lucide-react';
 import { subtleFadeUp } from '../utils/animations';
 
 export default function Hero({ 
@@ -72,6 +72,12 @@ export default function Hero({
           animate="visible"
           variants={subtleFadeUp}
         >
+          {/* Official Accreditation Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#EAE5DB] shadow-xs text-xs font-semibold text-[#3A4B3D] mb-4 w-fit">
+            <ShieldCheck className="w-4 h-4 text-emerald-700" strokeWidth={2} />
+            <span>Ministry of Tourism Approved</span>
+          </div>
+
           {/* Heading - exact editorial serif style matching reference image */}
           <h1 className="font-editorial text-5xl sm:text-6xl lg:text-[70px] xl:text-[76px] font-normal tracking-[-0.02em] text-[#19211A] leading-[1.04] mb-4 sm:mb-5">
             Your quiet<br />

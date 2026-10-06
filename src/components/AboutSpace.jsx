@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ShieldCheck } from 'lucide-react';
 import { subtleFadeUp } from '../utils/animations';
 
 export default function AboutSpace({ onOpenStory }) {
@@ -14,6 +15,11 @@ export default function AboutSpace({ onOpenStory }) {
           viewport={{ once: true, margin: '-80px' }}
           variants={subtleFadeUp}
         >
+
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#3A4B3D]/10 text-xs font-semibold text-[#3A4B3D] mb-4">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" strokeWidth={2} />
+            <span>Ministry of Tourism Approved</span>
+          </div>
 
           <h2 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#1F2421] leading-[1.15] mb-6">
             More than just a stay, it's a feeling.

@@ -5,6 +5,8 @@ export const INITIAL_ROOMS = [
     roomType: 'ac',
     view: 'Garden View',
     capacity: 2,
+    occupancyNote: '2 Adults (Two kids go free)',
+    kidPolicy: 'Two kids go free',
     price: 1200,
     status: 'Available',
     image: '/images/ac-room1.jpg',
@@ -15,11 +17,11 @@ export const INITIAL_ROOMS = [
       '/images/bathroom.jpg',
       '/images/reception.jpg'
     ],
-    description: 'A cool, tranquil haven with a handcrafted king-size bed, warm teakwood furnishings, and peaceful morning garden views. Perfect for couples or solo retreats seeking comfort.',
+    description: 'A cool, tranquil haven with a handcrafted king-size bed, warm teakwood furnishings, and peaceful morning garden views. Rate covers two adults, and two kids go free.',
     bed: '1 King Bed (6ft)',
-    features: ['1 King Bed (6ft)', 'Free Wi-Fi', 'Private Balcony', 'Attached Bathroom'],
-    amenities: ['High-speed Wi-Fi', 'Air Conditioning', 'En-suite Bathroom with Hot Water', 'Daily Housekeeping', 'Electric Kettle with Tea/Coffee'],
-    size: '280 sq.ft'
+    features: ['1 King Bed (6ft)', 'Free Wi-Fi', 'Private Balcony', 'Attached Bathroom', 'Two kids go free'],
+    amenities: ['High-speed Wi-Fi', 'Air Conditioning', 'En-suite Bathroom', 'Daily Housekeeping', 'Complementary Drinking Water', 'Toiletries'],
+    size: '180 sq.ft'
   },
   {
     id: 'non-ac-room',
@@ -27,6 +29,8 @@ export const INITIAL_ROOMS = [
     roomType: 'non-ac',
     view: 'Garden View',
     capacity: 2,
+    occupancyNote: '2 Adults (Two kids go free)',
+    kidPolicy: 'Two kids go free',
     price: 1000,
     status: 'Available',
     image: '/images/non-ac room2 view2.jpg',
@@ -35,11 +39,11 @@ export const INITIAL_ROOMS = [
       '/images/non-ac room2 view2.jpg',
       '/images/bathroom2.jpg',
     ],
-    description: 'A breezy, comfortable room with a handcrafted king-size bed, warm teakwood furnishings, and tranquil garden views. A simple, restful stay for couples or solo travellers.',
+    description: 'A breezy, comfortable room with a handcrafted king-size bed, warm teakwood furnishings, and tranquil garden views. Rate covers two adults, and two kids go free.',
     bed: '1 King Bed (6ft)',
-    features: ['1 King Bed (6ft)', 'Free Wi-Fi', 'Private Balcony', 'Attached Bathroom'],
-    amenities: ['High-speed Wi-Fi', 'Ceiling Fan', 'En-suite Bathroom with Hot Water', 'Daily Housekeeping', 'Electric Kettle with Tea/Coffee'],
-    size: '280 sq.ft'
+    features: ['1 King Bed (6ft)', 'Free Wi-Fi', 'Private Balcony', 'Attached Bathroom', 'Two kids go free'],
+    amenities: ['High-speed Wi-Fi', 'Ceiling Fan', 'En-suite Bathroom', 'Daily Housekeeping', 'Complementary Drinking Water', 'Toiletries'],
+    size: '180 sq.ft'
   }
 ];
 
@@ -65,7 +69,7 @@ export const AMENITIES_LIST = [
   {
     id: 'amenities',
     name: 'Amenities',
-    desc: 'Hot water, electric kettle, toiletries, and thoughtful room essentials.',
+    desc: 'Complementary drinking water, toiletries, and thoughtful room essentials.',
     iconName: 'Sparkles'
   },
   {
@@ -126,14 +130,17 @@ export const POLICIES = {
 export const CONTACT_INFO = {
   name: 'Zion Inn Homestay',
   tagline: 'Stay. Relax. Feel at Home.',
+  accreditation: 'Ministry of Tourism Approved',
   addressLine1: 'Zion Inn Homestay, Neyyoor',
   addressLine2: 'Kanyakumari District, Tamil Nadu – 629802',
   landmark: 'Near Eraniel Railway Station (3 km), close to CSI Hospital Neyyoor',
   phone1: '+91 81484 37600',
   phone1Raw: '+918148437600',
-  phone2: '+91 81484 37600',
-  whatsapp: '918148437600',
-  whatsappNumber: '918148437600',
+  phone2: '+91 93856 68505',
+  phone2Raw: '+919385668505',
+  whatsapp: '917418220321',
+  whatsappNumber: '917418220321',
+  whatsappDisplay: '+91 74182 20321',
   email: 'zioninn.bnb@gmail.com',
   googleMapsUrl: 'https://maps.google.com/?q=Neyyoor,+Kanyakumari+District,+Tamil+Nadu+629802'
 };
@@ -153,7 +160,11 @@ export const HOMESTAY_FAQS = [
   },
   {
     q: 'What amenities are included in each room?',
-    a: 'All rooms include private en-suite bathrooms with 24/7 hot water, an electric kettle with tea and coffee provisions, high-speed fiber Wi-Fi, 24/7 power backup, and private garden-facing verandas. Authentic local dining spots are also just minutes away.'
+    a: 'All rooms include private en-suite bathrooms, complementary drinking water, toiletries, high-speed fiber Wi-Fi, 24/7 power backup, and private garden-facing verandas. Authentic local dining spots are also just minutes away.'
+  },
+  {
+    q: 'Can children stay with us? What is the kids policy?',
+    a: 'Yes! Families with children are warmly welcome. Room rates cover two adults, and two kids stay free.'
   },
   {
     q: 'Is safe parking available on premises?',

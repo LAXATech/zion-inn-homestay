@@ -7,9 +7,10 @@ export function getLodgingBusinessSchema() {
     '@id': `${BASE_URL}/#homestay`,
     name: 'Zion Inn Homestay',
     alternateName: ['Zion Inn', 'Zion Inn Neyyoor', 'Zion Inn Homestay Kanyakumari'],
-    description: 'A tranquil sanctuary homestay in Neyyoor, Kanyakumari. Handcrafted king bedrooms, air conditioning, private balconies, 24/7 power backup, and serene gardens near Eraniel and Padmanabhapuram Palace.',
+    description: 'A tranquil sanctuary homestay in Neyyoor, Kanyakumari (Ministry of Tourism Approved). Handcrafted king bedrooms, air conditioning, private balconies, 24/7 power backup, and serene gardens near Eraniel and Padmanabhapuram Palace.',
+    award: 'Ministry of Tourism Approved',
     url: `${BASE_URL}/`,
-    telephone: '+918148437600',
+    telephone: ['+918148437600', '+919385668505'],
     email: 'zioninn.bnb@gmail.com',
     priceRange: '₹1000 - ₹1200',
     checkinTime: '14:00',
@@ -39,7 +40,7 @@ export function getLodgingBusinessSchema() {
       { '@type': 'LocationFeatureSpecification', name: '24/7 Power Backup', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Private Balconies', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Free Secure On-Site Parking', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'En-suite Bathroom with Hot Water', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'En-suite Bathroom', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Tranquil Flowering Garden', value: true }
     ],
     hasOfferCatalog: {
@@ -51,7 +52,7 @@ export function getLodgingBusinessSchema() {
           itemOffered: {
             '@type': 'HotelRoom',
             name: 'AC Room',
-            description: 'Cool tranquil room with handcrafted king bed, private veranda, air conditioning and attached bathroom.',
+            description: 'Cool tranquil room with handcrafted king bed, private veranda, air conditioning and attached bathroom. Rate covers 2 adults; two kids go free.',
             bed: '1 King Bed (6ft)',
             occupancy: { '@type': 'QuantitativeValue', value: 2, unitText: 'person' }
           },
@@ -63,7 +64,7 @@ export function getLodgingBusinessSchema() {
           itemOffered: {
             '@type': 'HotelRoom',
             name: 'Non-AC Room',
-            description: 'Breezy comfortable room with handcrafted king bed, garden view, and attached hot water bathroom.',
+            description: 'Breezy comfortable room with handcrafted king bed, garden view, and attached bathroom. Rate covers 2 adults; two kids go free.',
             bed: '1 King Bed (6ft)',
             occupancy: { '@type': 'QuantitativeValue', value: 2, unitText: 'person' }
           },

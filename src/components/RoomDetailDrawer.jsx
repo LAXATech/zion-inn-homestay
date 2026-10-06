@@ -21,12 +21,12 @@ export default function RoomDetailDrawer({
   checkOutDate, 
   guestCount 
 }) {
-  const [selectedImage, setSelectedImage] = useState(room?.image || '/images/deluxe-room.jpg');
+  const [selectedImage, setSelectedImage] = useState(room?.image || '');
 
   if (!room) return null;
 
   // Active preview image fallback
-  const currentImage = selectedImage || room.image;
+  const currentImage = selectedImage || room.image || room.gallery?.[0] || '';
 
   // Formatted date string for WhatsApp message
   const formatDateStr = (dateStr) => {
@@ -78,7 +78,7 @@ export default function RoomDetailDrawer({
                   {room.name}
                 </h3>
                 <p className="text-xs text-[#5D645E]">
-                  {room.view} • {room.capacity} Guests
+                  {room.view} • 2 Adults (Two kids go free)
                 </p>
               </div>
 
@@ -130,11 +130,16 @@ export default function RoomDetailDrawer({
 
               {/* Room Rate */}
               <div className="flex items-baseline justify-between py-3 border-y border-[#EAE5DB]">
-                <div className="flex items-baseline gap-1 text-[#1F2421]">
-                  <span className="font-editorial text-3xl font-semibold">
-                    ₹{room.price.toLocaleString('en-IN')}
+                <div className="flex flex-col">
+                  <div className="flex items-baseline gap-1 text-[#1F2421]">
+                    <span className="font-editorial text-3xl font-semibold">
+                      ₹{room.price.toLocaleString('en-IN')}
+                    </span>
+                    <span className="text-sm text-[#5D645E]">/ night</span>
+                  </div>
+                  <span className="text-[11px] text-[#3A4B3D] font-medium mt-0.5">
+                    Rate for 2 Adults • Two kids go free
                   </span>
-                  <span className="text-sm text-[#5D645E]">/ night</span>
                 </div>
 
                 <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${
@@ -165,6 +170,10 @@ export default function RoomDetailDrawer({
                   <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-[#EAE5DB]">
                     <Bath className="w-4 h-4 text-[#3A4B3D] shrink-0" strokeWidth={1.5} />
                     <span>Attached Bathroom</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-emerald-50 text-emerald-900 border border-emerald-100 col-span-2 font-medium">
+                    <span className="text-emerald-700 font-bold">✓</span>
+                    <span>Family Provision: Two kids go free</span>
                   </div>
                 </div>
               </div>

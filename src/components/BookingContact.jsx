@@ -214,9 +214,13 @@ export default function BookingContact({
 
               <div className="flex items-center gap-3 pt-2 border-t border-[#EAE5DB]/70">
                 <Phone className="w-4 h-4 text-[#3A4B3D] shrink-0" strokeWidth={1.5} />
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
                   <a href={`tel:${CONTACT_INFO.phone1Raw}`} className="hover:text-[#3A4B3D] font-medium">
                     {CONTACT_INFO.phone1}
+                  </a>
+                  <span className="text-[#5D645E]/40">•</span>
+                  <a href={`tel:${CONTACT_INFO.phone2Raw}`} className="hover:text-[#3A4B3D] font-medium">
+                    {CONTACT_INFO.phone2}
                   </a>
                 </div>
               </div>

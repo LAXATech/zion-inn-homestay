@@ -69,7 +69,7 @@ const GALLERY_ITEMS = [
     title: 'Attached En-Suite Bathroom',
     category: 'rooms',
     categoryLabel: 'Rooms & Suites',
-    caption: 'Spotless tiled bathroom with 24/7 hot water supply and premium fixtures.'
+    caption: 'Spotless tiled bathroom with clean sanitaryware and premium fixtures.'
   },
   {
     id: 'bathroom-secondary',
@@ -94,14 +94,6 @@ const GALLERY_ITEMS = [
     category: 'spaces',
     categoryLabel: 'The Homestay',
     caption: 'Paved stone pathways, tropical foliage, and outdoor cane seating under native fruit trees.'
-  },
-  {
-    id: 'simple-comforts',
-    image: '/images/simple-comforts.jpg',
-    title: 'Sunlit Reading Nook',
-    category: 'spaces',
-    categoryLabel: 'Verandas & Gardens',
-    caption: 'Potted indoor plants, cozy armchair by the window, and a quiet corner for morning filter coffee.'
   },
   {
     id: 'padmanabhapuram',
@@ -158,6 +150,62 @@ const GALLERY_ITEMS = [
     category: 'excursions',
     categoryLabel: 'Nearby Sights',
     caption: 'Historic coastal natural harbour and scenic breakwater viewpoint overlooking active fishing vessels and expansive Arabian Sea horizons.'
+  },
+  {
+    id: 'poovar-backwaters',
+    image: '/images/poovar-backwaters.webp',
+    title: 'Poovar Backwaters & Boating',
+    category: 'excursions',
+    categoryLabel: 'Nearby Sights',
+    caption: 'Enchanting Kerala backwaters with motorized boat cruises through dense mangrove estuaries leading to the golden sand beach and Neyyar river.'
+  },
+  {
+    id: 'thirparappu-waterfalls',
+    image: '/images/thirparappu-waterfalls.webp',
+    title: 'Thirparappu Waterfalls',
+    category: 'excursions',
+    categoryLabel: 'Nearby Sights',
+    caption: 'A 50-foot cascading multi-tiered waterfall fed by the Kodayar River, featuring a picturesque bathing pool and the historic Lord Shiva temple.'
+  },
+  {
+    id: 'kalikesam-forest-river',
+    image: '/images/kalikesam-forest.jpeg',
+    title: 'Kalikesam Forest & River',
+    category: 'excursions',
+    categoryLabel: 'Nearby Sights',
+    caption: 'Lush tropical evergreen reserve forest tucked within the Western Ghats with pristine natural stream waters, forest walking trails, and sacred shrines.'
+  },
+  {
+    id: 'sanguthurai-beach',
+    image: '/images/sanguthurai-beach.jpg',
+    title: 'Sanguthurai Beach',
+    category: 'excursions',
+    categoryLabel: 'Nearby Sights',
+    caption: 'A serene coastline famous for its iconic white conch shell monument, golden sands, soothing sea breeze, and sweeping Indian Ocean horizons.'
+  },
+  {
+    id: 'sothavilai-beach',
+    image: '/images/sothavilai-beach.jpg',
+    title: 'Sothavilai Beach',
+    category: 'excursions',
+    categoryLabel: 'Nearby Sights',
+    caption: 'One of Tamil Nadu’s longest natural beaches with soft golden sands, shallow waters, thatched resting umbrellas, and stunning sunset views.'
+  },
+  {
+    id: 'kanyakumari-monuments',
+    image: '/images/kanyakumari-rock.jpeg',
+    title: 'Vivekananda Rock & Thiruvalluvar Statue',
+    category: 'excursions',
+    categoryLabel: 'Nearby Sights',
+    caption: 'Iconic offshore monuments sitting at the confluence of the Indian Ocean, Arabian Sea, and Bay of Bengal at the southernmost tip of mainland India.'
+  },
+  {
+    id: 'suchindram-temple',
+    image: '/images/suchindram-temple.jpg',
+    title: 'Suchindram Thanumalayan Temple',
+    category: 'excursions',
+    categoryLabel: 'Nearby Sights',
+    caption: 'Famous 17th-century Dravidian architectural masterpiece dedicated to the Trinity (Shiva, Vishnu, and Brahma), renowned for musical pillars and grand temple tank.'
   }
 ];
 

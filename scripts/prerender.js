@@ -57,7 +57,7 @@ function renderFooter() {
               <span class="text-xl font-semibold text-white tracking-wider">ZION INN</span>
             </div>
             <p class="text-xs text-[#A8B2A9] leading-relaxed mb-4">
-              Your quiet sanctuary in Neyyoor, Kanyakumari. Handcrafted comfort, breezy verandas, and peaceful gardens.
+              Your quiet sanctuary in Neyyoor, Kanyakumari (Ministry of Tourism Approved). Handcrafted comfort, breezy verandas, and peaceful gardens.
             </p>
           </div>
           <div>
@@ -83,8 +83,8 @@ function renderFooter() {
             <address class="not-italic text-xs text-[#A8B2A9] space-y-2">
               <p>Zion Inn Homestay, Neyyoor</p>
               <p>Kanyakumari District, Tamil Nadu – 629802</p>
-              <p>Phone: <a href="tel:+918148437600" class="hover:text-white">+91 81484 37600</a></p>
-              <p>WhatsApp: <a href="https://wa.me/918148437600" class="hover:text-white">+91 81484 37600</a></p>
+              <p>Phone: <a href="tel:${CONTACT_INFO.phone1Raw}" class="hover:text-white">${CONTACT_INFO.phone1}</a> / <a href="tel:${CONTACT_INFO.phone2Raw}" class="hover:text-white">${CONTACT_INFO.phone2}</a></p>
+              <p>WhatsApp: <a href="https://wa.me/${CONTACT_INFO.whatsapp}" class="hover:text-white">${CONTACT_INFO.whatsappDisplay}</a></p>
               <p>Email: <a href="mailto:${CONTACT_INFO.email}" class="hover:text-white">${CONTACT_INFO.email}</a></p>
             </address>
           </div>
@@ -109,7 +109,7 @@ const routes = [
       ${renderHeader()}
       <main class="pt-24">
         <section class="max-w-7xl mx-auto px-4 sm:px-8 py-12">
-          <p class="text-xs uppercase tracking-widest text-[#3A4B3D] font-semibold mb-2">A Quiet Sanctuary in Neyyoor</p>
+          <p class="text-xs font-semibold text-[#3A4B3D] mb-2 uppercase tracking-wider">Ministry of Tourism Approved • A Quiet Sanctuary in Neyyoor</p>
           <h1 class="text-4xl sm:text-6xl font-serif text-[#1F2421] mb-6">Restful Homestay Experience in Kanyakumari</h1>
           <p class="text-base sm:text-lg text-[#5D645E] max-w-2xl leading-relaxed mb-8">
             Experience hand-carved king suites, soothing sea breezes, 24/7 power backup, and verdant flowering gardens in Neyyoor, Tamil Nadu. Just 8 minutes from Eraniel Railway Station.
@@ -126,7 +126,7 @@ const routes = [
             ${INITIAL_ROOMS.map(r => `
               <article class="p-6 bg-white rounded-3xl border border-[#EAE5DB]">
                 <h3 class="text-2xl font-serif text-[#1F2421] mb-2">${r.name}</h3>
-                <p class="text-xs font-semibold text-[#3A4B3D] mb-3">₹${r.price} / night • ${r.bed}</p>
+                <p class="text-xs font-semibold text-[#3A4B3D] mb-3">₹${r.price} / night • ${r.bed} • Two kids go free</p>
                 <p class="text-sm text-[#5D645E] leading-relaxed mb-4">${r.description}</p>
                 <ul class="text-xs text-[#4D5A50] space-y-1 mb-6">
                   ${r.amenities.map(a => `<li>✓ ${a}</li>`).join('')}
@@ -168,13 +168,13 @@ const routes = [
         </nav>
         <h1 class="text-4xl sm:text-5xl font-serif text-[#1F2421] mb-4">Rooms & Suites in Neyyoor</h1>
         <p class="text-sm sm:text-base text-[#5D645E] max-w-2xl mb-12 leading-relaxed">
-          Choose between our tranquil AC Room and airy Non-AC Room. Every room is outfitted with handcrafted teakwood king beds, private verandas, en-suite bathrooms with hot water, and uninterrupted power backup.
+          Choose between our tranquil AC Room and airy Non-AC Room. Every room is outfitted with handcrafted teakwood king beds, private verandas, en-suite bathrooms, and uninterrupted power backup.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           ${INITIAL_ROOMS.map(r => `
             <article class="p-8 bg-white rounded-3xl border border-[#EAE5DB]">
               <h2 class="text-2xl font-serif text-[#1F2421] mb-2">${r.name}</h2>
-              <p class="text-sm font-semibold text-[#3A4B3D] mb-4">₹${r.price} per night • ${r.bed} • Up to ${r.capacity} Guests</p>
+              <p class="text-sm font-semibold text-[#3A4B3D] mb-4">₹${r.price} per night • ${r.bed} • 2 Adults (Two kids go free)</p>
               <p class="text-sm text-[#5D645E] leading-relaxed mb-6">${r.description}</p>
               <h3 class="text-xs font-semibold uppercase tracking-wider text-[#1F2421] mb-3">Included Amenities</h3>
               <ul class="text-xs text-[#4D5A50] space-y-2 mb-8">
@@ -230,6 +230,34 @@ const routes = [
             <img src="/images/mathur-aqueduct.webp" alt="Mathur Hanging Aqueduct near Neyyoor" class="w-full h-48 object-cover rounded-xl" />
             <figcaption class="text-xs text-[#5D645E] mt-2 text-center">Mathur Hanging Aqueduct (8 km)</figcaption>
           </figure>
+          <figure class="p-2 bg-white rounded-2xl border border-[#EAE5DB]">
+            <img src="/images/poovar-backwaters.webp" alt="Poovar Backwaters & Boating" class="w-full h-48 object-cover rounded-xl" />
+            <figcaption class="text-xs text-[#5D645E] mt-2 text-center">Poovar Backwaters &amp; Boating</figcaption>
+          </figure>
+          <figure class="p-2 bg-white rounded-2xl border border-[#EAE5DB]">
+            <img src="/images/thirparappu-waterfalls.webp" alt="Thirparappu Waterfalls" class="w-full h-48 object-cover rounded-xl" />
+            <figcaption class="text-xs text-[#5D645E] mt-2 text-center">Thirparappu Waterfalls</figcaption>
+          </figure>
+          <figure class="p-2 bg-white rounded-2xl border border-[#EAE5DB]">
+            <img src="/images/kalikesam-forest.jpeg" alt="Kalikesam Forest & River" class="w-full h-48 object-cover rounded-xl" />
+            <figcaption class="text-xs text-[#5D645E] mt-2 text-center">Kalikesam Forest &amp; River</figcaption>
+          </figure>
+          <figure class="p-2 bg-white rounded-2xl border border-[#EAE5DB]">
+            <img src="/images/sanguthurai-beach.jpg" alt="Sanguthurai Beach" class="w-full h-48 object-cover rounded-xl" />
+            <figcaption class="text-xs text-[#5D645E] mt-2 text-center">Sanguthurai Beach</figcaption>
+          </figure>
+          <figure class="p-2 bg-white rounded-2xl border border-[#EAE5DB]">
+            <img src="/images/sothavilai-beach.jpg" alt="Sothavilai Beach" class="w-full h-48 object-cover rounded-xl" />
+            <figcaption class="text-xs text-[#5D645E] mt-2 text-center">Sothavilai Beach</figcaption>
+          </figure>
+          <figure class="p-2 bg-white rounded-2xl border border-[#EAE5DB]">
+            <img src="/images/kanyakumari-rock.jpeg" alt="Vivekananda Rock & Thiruvalluvar Statue" class="w-full h-48 object-cover rounded-xl" />
+            <figcaption class="text-xs text-[#5D645E] mt-2 text-center">Vivekananda Rock &amp; Thiruvalluvar Statue</figcaption>
+          </figure>
+          <figure class="p-2 bg-white rounded-2xl border border-[#EAE5DB]">
+            <img src="/images/suchindram-temple.jpg" alt="Suchindram Thanumalayan Temple" class="w-full h-48 object-cover rounded-xl" />
+            <figcaption class="text-xs text-[#5D645E] mt-2 text-center">Suchindram Thanumalayan Temple</figcaption>
+          </figure>
         </div>
       </main>
       ${renderFooter()}
@@ -258,8 +286,8 @@ const routes = [
             <h2 class="text-2xl font-serif text-[#1F2421] mb-6">Direct Inquiries</h2>
             <address class="not-italic text-sm text-[#4D5A50] space-y-4">
               <p><strong>Address:</strong><br />Zion Inn Homestay, Near Eraniel Railway Station (3.2 km), Neyyoor, Kanyakumari District, Tamil Nadu – 629802</p>
-              <p><strong>Phone:</strong> <a href="tel:+918148437600" class="text-[#3A4B3D] underline">+91 81484 37600</a></p>
-              <p><strong>WhatsApp:</strong> <a href="https://wa.me/918148437600" class="text-[#3A4B3D] underline">+91 81484 37600</a></p>
+              <p><strong>Phone:</strong> <a href="tel:${CONTACT_INFO.phone1Raw}" class="text-[#3A4B3D] underline">${CONTACT_INFO.phone1}</a> / <a href="tel:${CONTACT_INFO.phone2Raw}" class="text-[#3A4B3D] underline">${CONTACT_INFO.phone2}</a></p>
+              <p><strong>WhatsApp:</strong> <a href="https://wa.me/${CONTACT_INFO.whatsapp}" class="text-[#3A4B3D] underline">${CONTACT_INFO.whatsappDisplay}</a></p>
               <p><strong>Email:</strong> <a href="mailto:${CONTACT_INFO.email}" class="text-[#3A4B3D] underline">${CONTACT_INFO.email}</a></p>
               <p><strong>Transit:</strong> 8 min from Eraniel (ERL) Station • 30 min from Nagercoil Junction • 60 km from Trivandrum (TRV) Airport</p>
             </address>

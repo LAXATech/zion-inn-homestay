@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, ShieldCheck } from 'lucide-react';
 import { CONTACT_INFO } from '../data/homestayData';
 
 export default function Footer({ onNavigate }) {
@@ -27,8 +27,12 @@ export default function Footer({ onNavigate }) {
               <span className="font-editorial text-lg font-semibold tracking-wider block leading-none uppercase">
                 Zion Inn
               </span>
-              <span className="text-[9px] tracking-widest uppercase opacity-75">
+              <span className="text-[9px] tracking-widest uppercase opacity-75 block">
                 Homestay
+              </span>
+              <span className="inline-flex items-center gap-1 text-[10px] text-emerald-300 font-medium mt-1">
+                <ShieldCheck className="w-3 h-3 text-emerald-400" />
+                Ministry of Tourism Approved
               </span>
             </div>
           </div>
@@ -97,6 +101,10 @@ export default function Footer({ onNavigate }) {
                 <a href={`tel:${CONTACT_INFO.phone1Raw}`} className="underline hover:text-white transition-colors">
                   {CONTACT_INFO.phone1}
                 </a>
+                {' / '}
+                <a href={`tel:${CONTACT_INFO.phone2Raw}`} className="underline hover:text-white transition-colors">
+                  {CONTACT_INFO.phone2}
+                </a>
               </p>
               <p>
                 WhatsApp:{' '}
@@ -106,7 +114,7 @@ export default function Footer({ onNavigate }) {
                   rel="noopener noreferrer" 
                   className="underline hover:text-white transition-colors"
                 >
-                  +{CONTACT_INFO.whatsapp}
+                  {CONTACT_INFO.whatsappDisplay}
                 </a>
               </p>
               <p>

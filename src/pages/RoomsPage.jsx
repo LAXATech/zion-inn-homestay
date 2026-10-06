@@ -99,9 +99,15 @@ export default function RoomsPage({
           variants={subtleFadeUp}
           className="text-left max-w-3xl"
         >
-          <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#5D645E] mb-2 block">
-            LIVING SPACES & ROOMS
-          </span>
+          <div className="flex flex-wrap items-center gap-2.5 mb-2">
+            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#5D645E]">
+              LIVING SPACES & ROOMS
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-50 text-[11px] font-semibold text-emerald-800 border border-emerald-200/80">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" strokeWidth={2} />
+              Ministry of Tourism Approved
+            </span>
+          </div>
           <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-[#1F2421] leading-tight mb-4">
             Sanctuary Suites & Veranda Rooms
           </h1>
@@ -278,7 +284,7 @@ export default function RoomsPage({
                         <Users className="w-4 h-4 text-[#3A4B3D] shrink-0" strokeWidth={1.5} />
                         <div>
                           <p className="text-[10px] text-[#717872] uppercase">Capacity</p>
-                          <p className="font-semibold">Up to {room.capacity} Guests</p>
+                          <p className="font-semibold">2 Adults (Two kids go free)</p>
                         </div>
                       </div>
 
@@ -318,6 +324,9 @@ export default function RoomsPage({
                         </span>
                         <span className="text-xs text-[#5D645E]">/ night</span>
                       </div>
+                      <p className="text-[11px] text-[#3A4B3D] font-medium mt-0.5">
+                        Rate for 2 Adults • Two kids go free
+                      </p>
                       <p className="text-[11px] text-[#717872] mt-0.5">
                         ₹{totalEstimate.toLocaleString('en-IN')} total for {nights} {nights === 1 ? 'night' : 'nights'} (incl. taxes)
                       </p>
@@ -399,9 +408,20 @@ export default function RoomsPage({
                 ))}
               </tr>
               <tr>
-                <td className="py-3.5 px-6 font-medium text-[#5D645E]">Maximum Guests</td>
+                <td className="py-3.5 px-6 font-medium text-[#5D645E]">Accreditation</td>
                 {rooms.map((r) => (
-                  <td key={r.id} className="py-3.5 px-6">{r.capacity} Guests</td>
+                  <td key={r.id} className="py-3.5 px-6 font-medium text-emerald-800">
+                    <span className="inline-flex items-center gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
+                      Ministry of Tourism Approved
+                    </span>
+                  </td>
+                ))}
+              </tr>
+              <tr>
+                <td className="py-3.5 px-6 font-medium text-[#5D645E]">Capacity & Kids Policy</td>
+                {rooms.map((r) => (
+                  <td key={r.id} className="py-3.5 px-6 font-medium text-[#222623]">2 Adults • Two kids go free</td>
                 ))}
               </tr>
               <tr>
@@ -413,7 +433,7 @@ export default function RoomsPage({
                 ))}
               </tr>
               <tr>
-                <td className="py-3.5 px-6 font-medium text-[#5D645E]">Attached Bathroom & Geyser</td>
+                <td className="py-3.5 px-6 font-medium text-[#5D645E]">Attached Bathroom</td>
                 {rooms.map((r) => (
                   <td key={r.id} className="py-3.5 px-6">
                     <Check className="w-4 h-4 text-[#3A4B3D]" strokeWidth={2} />

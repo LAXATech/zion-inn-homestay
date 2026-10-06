@@ -300,6 +300,7 @@ export default function App() {
 
       {/* Room Detail Drawer */}
       <RoomDetailDrawer 
+        key={selectedRoomForDrawer?.id || 'room-drawer'}
         room={selectedRoomForDrawer}
         isOpen={Boolean(selectedRoomForDrawer)}
         onClose={() => setSelectedRoomForDrawer(null)}
