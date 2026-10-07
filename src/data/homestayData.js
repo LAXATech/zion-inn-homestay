@@ -100,7 +100,7 @@ export const ATTRACTIONS_LIST = [
   {
     id: 'muttom',
     name: 'Muttom Rocky Beach & Lighthouse',
-    distance: '12 km',
+    distance: '11.6 km',
     category: 'Coastline',
     image: '/images/muttom-beach.webp',
     description: 'A striking rocky coastline featuring an iconic century-old colonial lighthouse, dramatic sea waves, panoramic sunset vistas, and tranquil shores.',
