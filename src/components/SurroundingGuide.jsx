@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, MapPin, ExternalLink } from 'lucide-react';
 import { subtleFadeUp } from '../utils/animations';
@@ -6,12 +6,49 @@ import { ATTRACTIONS_LIST } from '../data/homestayData';
 
 export default function SurroundingGuide() {
   const [selectedAttraction, setSelectedAttraction] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  const categories = useMemo(() => [
+    { id: 'all', label: `All Sights (${ATTRACTIONS_LIST.length})` },
+    { id: 'beaches', label: 'Beaches & Coast' },
+    { id: 'nature', label: 'Nature & Waterfalls' },
+    { id: 'heritage', label: 'Heritage & Temples' }
+  ], []);
+
+  const filteredAttractions = useMemo(() => {
+    if (activeCategory === 'all') return ATTRACTIONS_LIST;
+    if (activeCategory === 'beaches') {
+      return ATTRACTIONS_LIST.filter(item => 
+        item.category.toLowerCase().includes('coast') || 
+        item.category.toLowerCase().includes('harbour') || 
+        item.category.toLowerCase().includes('beach')
+      );
+    }
+    if (activeCategory === 'nature') {
+      return ATTRACTIONS_LIST.filter(item => 
+        item.category.toLowerCase().includes('waterfall') || 
+        item.category.toLowerCase().includes('forest') || 
+        item.category.toLowerCase().includes('backwater') || 
+        item.category.toLowerCase().includes('scenic') || 
+        item.category.toLowerCase().includes('viewpoint') || 
+        item.category.toLowerCase().includes('canal')
+      );
+    }
+    if (activeCategory === 'heritage') {
+      return ATTRACTIONS_LIST.filter(item => 
+        item.category.toLowerCase().includes('history') || 
+        item.category.toLowerCase().includes('monument') || 
+        item.category.toLowerCase().includes('spiritual')
+      );
+    }
+    return ATTRACTIONS_LIST;
+  }, [activeCategory]);
 
   return (
     <section id="location" className="px-4 sm:px-8 max-w-7xl mx-auto py-12 sm:py-20 border-t border-[#EAE5DB]/60">
       {/* Section Header */}
       <motion.div 
-        className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 text-left"
+        className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 text-left"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-80px' }}
@@ -19,8 +56,11 @@ export default function SurroundingGuide() {
       >
         <div>
           <h2 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#1F2421]">
-            Explore Nearby
+            Explore Nearby Attractions
           </h2>
+          <p className="text-xs sm:text-sm text-[#5D645E] mt-2 max-w-xl leading-relaxed">
+            Pristine beaches, tranquil backwaters, cascading waterfalls, and historic royal palaces all within scenic driving distance from Zion Inn.
+          </p>
         </div>
 
         <a 
@@ -29,14 +69,32 @@ export default function SurroundingGuide() {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 text-sm font-medium text-[#3A4B3D] hover:text-[#2D3B30] mt-3 sm:mt-0 group"
         >
-          <span>View more places</span>
+          <span>View on Google Maps</span>
           <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
         </a>
       </motion.div>
 
+      {/* Category Filter Pills */}
+      <div className="flex flex-wrap items-center gap-2 mb-8 sm:mb-10">
+        {categories.map((cat) => (
+          <button
+            key={cat.id}
+            type="button"
+            onClick={() => setActiveCategory(cat.id)}
+            className={`px-4 py-2 rounded-full text-xs font-medium transition-all cursor-pointer ${
+              activeCategory === cat.id
+                ? 'bg-[#3A4B3D] text-[#FBF9F5] shadow-xs'
+                : 'bg-[#F5F2EB] text-[#5D645E] hover:bg-[#EAE5DB] hover:text-[#1F2421]'
+            }`}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
       {/* Attractions Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-        {ATTRACTIONS_LIST.map((item, index) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {filteredAttractions.map((item, index) => (
           <motion.div
             key={item.id}
             initial="hidden"

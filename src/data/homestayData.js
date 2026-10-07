@@ -89,7 +89,7 @@ export const AMENITIES_LIST = [
 export const ATTRACTIONS_LIST = [
   {
     id: 'padmanabhapuram',
-    name: 'Padmanabhapuram Palace',
+    name: 'Padmanabhapuram Wooden Palace',
     distance: '5 km',
     category: 'History & Culture',
     image: '/images/padmanabhapuram.webp',
@@ -99,23 +99,133 @@ export const ATTRACTIONS_LIST = [
   },
   {
     id: 'muttom',
-    name: 'Muttom Beach',
+    name: 'Muttom Rocky Beach & Lighthouse',
     distance: '12 km',
     category: 'Coastline',
     image: '/images/muttom-beach.webp',
-    description: 'A striking rocky beach featuring an iconic century-old colonial lighthouse, dramatic sea waves, panoramic sunset vistas, and tranquil shores.',
-    driveTime: '22 min drive',
+    description: 'A striking rocky coastline featuring an iconic century-old colonial lighthouse, dramatic sea waves, panoramic sunset vistas, and tranquil shores.',
+    driveTime: '20 min drive',
     bestTime: 'Sunset (4:30 PM - 6:30 PM)'
   },
   {
     id: 'mathur',
-    name: 'Mathur Aqueduct',
+    name: 'Mathur Hanging Aqueduct',
     distance: '8 km',
-    category: 'Scenic Spot',
+    category: 'Scenic Landmark',
     image: '/images/mathur-aqueduct.webp',
     description: 'One of Asia’s longest and highest hanging trough aqueducts, towering 115 ft above dense green coconut groves with breathtaking valley vistas.',
     driveTime: '18 min drive',
-    bestTime: 'Late Afternoon'
+    bestTime: 'Late Afternoon (3:30 PM - 6:00 PM)'
+  },
+  {
+    id: 'villukuri-aqueduct',
+    name: 'Villukuri Aqueduct',
+    distance: '9 km',
+    category: 'Historic Canal',
+    image: '/images/villukuri-aqueduct.webp',
+    description: 'Historic canal water bridge (Thaneer Palam) carrying freshwater irrigation channels high above scenic, tranquil village roads and paddy fields.',
+    driveTime: '15 min drive',
+    bestTime: 'Morning or Early Evening'
+  },
+  {
+    id: 'manichithrathazhu-viewpoint',
+    name: 'Manichithrathazhu View Point',
+    distance: '14 km',
+    category: 'Hill Viewpoint',
+    image: '/images/manichithrathazhu-viewpoint.webp',
+    description: 'Elevated panoramic hilltop viewpoint offering breathtaking 360-degree vistas across misty Western Ghats slopes, wind farms, and lush emerald valleys.',
+    driveTime: '25 min drive',
+    bestTime: 'Sunrise or Sunset'
+  },
+  {
+    id: 'lemur-beach',
+    name: 'Lemur Beach',
+    distance: '16 km',
+    category: 'Coastline',
+    image: '/images/lemur-beach.webp',
+    description: 'Pristine coastal haven celebrated for peaceful golden sands, whispering coconut groves, and calm turquoise Arabian Sea waves away from crowds.',
+    driveTime: '28 min drive',
+    bestTime: 'Morning or Late Afternoon'
+  },
+  {
+    id: 'colachel-harbour',
+    name: 'Colachel Harbour View Point',
+    distance: '10 km',
+    category: 'Historic Harbour',
+    image: '/images/colachel-harbour-viewpoint.jpg',
+    description: 'Historic natural harbour and breakwater viewpoint overlooking active fishing vessels and sweeping Arabian Sea horizons.',
+    driveTime: '18 min drive',
+    bestTime: 'Evening (4:00 PM - 6:30 PM)'
+  },
+  {
+    id: 'poovar-backwaters',
+    name: 'Poovar Backwaters & Boating',
+    distance: '35 km',
+    category: 'Backwaters & Boating',
+    image: '/images/poovar-backwaters.webp',
+    description: 'Enchanting Kerala backwaters with motorized boat cruises through dense mangrove estuaries leading to the golden sand beach and Neyyar river.',
+    driveTime: '45 min drive',
+    bestTime: 'Morning (8:00 AM - 11:00 AM) or Sunset'
+  },
+  {
+    id: 'thirparappu-waterfalls',
+    name: 'Thirparappu Waterfalls',
+    distance: '24 km',
+    category: 'Waterfalls',
+    image: '/images/thirparappu-waterfalls.webp',
+    description: 'A 50-foot cascading multi-tiered waterfall fed by the Kodayar River, featuring a picturesque bathing pool and the historic Lord Shiva temple.',
+    driveTime: '38 min drive',
+    bestTime: 'Morning (9:00 AM - 1:00 PM)'
+  },
+  {
+    id: 'kalikesam-forest-river',
+    name: 'Kalikesam Forest & River',
+    distance: '32 km',
+    category: 'Forest & River Area',
+    image: '/images/kalikesam-forest.jpeg',
+    description: 'Lush tropical evergreen reserve forest tucked within the Western Ghats with pristine natural stream waters, forest walking trails, and sacred shrines.',
+    driveTime: '45 min drive',
+    bestTime: 'Morning (8:30 AM - 2:00 PM)'
+  },
+  {
+    id: 'sanguthurai-beach',
+    name: 'Sanguthurai Beach',
+    distance: '26 km',
+    category: 'Coastline',
+    image: '/images/sanguthurai-beach.jpg',
+    description: 'A serene coastline famous for its iconic white conch shell monument, golden sands, soothing sea breeze, and sweeping Indian Ocean horizons.',
+    driveTime: '35 min drive',
+    bestTime: 'Evening (4:30 PM - 6:30 PM)'
+  },
+  {
+    id: 'sothavilai-beach',
+    name: 'Sothavilai Beach',
+    distance: '28 km',
+    category: 'Coastline',
+    image: '/images/sothavilai-beach.jpg',
+    description: 'One of Tamil Nadu’s longest natural beaches with soft golden sands, shallow waters, thatched resting umbrellas, and stunning sunset views.',
+    driveTime: '38 min drive',
+    bestTime: 'Sunset (4:00 PM - 6:30 PM)'
+  },
+  {
+    id: 'kanyakumari-monuments',
+    name: 'Vivekananda Rock & Thiruvalluvar Statue',
+    distance: '34 km',
+    category: 'Historic Monument',
+    image: '/images/kanyakumari-rock.jpeg',
+    description: 'Iconic offshore monuments sitting at the confluence of the Indian Ocean, Arabian Sea, and Bay of Bengal at the southernmost tip of mainland India.',
+    driveTime: '45 min drive',
+    bestTime: 'Morning (8:00 AM - 12:00 PM)'
+  },
+  {
+    id: 'suchindram-temple',
+    name: 'Suchindram Thanumalayan Temple',
+    distance: '22 km',
+    category: 'Spiritual Heritage',
+    image: '/images/suchindram-temple.jpg',
+    description: 'Famous 17th-century Dravidian architectural masterpiece dedicated to the Trinity (Shiva, Vishnu, and Brahma), renowned for musical pillars and grand temple tank.',
+    driveTime: '30 min drive',
+    bestTime: 'Morning (6:00 AM - 11:00 AM) or Evening'
   }
 ];
 
