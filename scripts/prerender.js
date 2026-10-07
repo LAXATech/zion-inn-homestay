@@ -72,7 +72,7 @@ function renderFooter() {
           <div>
             <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Nearby Attractions</h3>
             <ul class="space-y-2 text-xs text-[#A8B2A9]">
-              <li>Padmanabhapuram Palace (5 km)</li>
+              <li>Padmanabhapuram Palace (6.9 km)</li>
               <li>Muttom Beach & Lighthouse (12 km)</li>
               <li>Mathur Hanging Aqueduct (8 km)</li>
               <li>Eraniel Railway Station (3.2 km)</li>
@@ -220,7 +220,7 @@ const routes = [
           </figure>
           <figure class="p-2 bg-white rounded-2xl border border-[#EAE5DB]">
             <img src="/images/padmanabhapuram.webp" alt="Padmanabhapuram Palace near Neyyoor" class="w-full h-48 object-cover rounded-xl" />
-            <figcaption class="text-xs text-[#5D645E] mt-2 text-center">Padmanabhapuram Palace (5 km)</figcaption>
+            <figcaption class="text-xs text-[#5D645E] mt-2 text-center">Padmanabhapuram Palace (6.9 km)</figcaption>
           </figure>
           <figure class="p-2 bg-white rounded-2xl border border-[#EAE5DB]">
             <img src="/images/muttom-beach.webp" alt="Muttom Beach and Lighthouse near Neyyoor" class="w-full h-48 object-cover rounded-xl" />

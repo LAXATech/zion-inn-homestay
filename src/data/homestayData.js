@@ -90,7 +90,7 @@ export const ATTRACTIONS_LIST = [
   {
     id: 'padmanabhapuram',
     name: 'Padmanabhapuram Wooden Palace',
-    distance: '5 km',
+    distance: '6.9 km',
     category: 'History & Culture',
     image: '/images/padmanabhapuram.webp',
     description: 'Renowned 16th-century wooden palace of the Travancore Maharajas, famed for intricate wood carvings, cool black granite floors, and regal heritage.',
