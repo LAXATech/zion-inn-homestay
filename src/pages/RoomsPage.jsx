@@ -14,7 +14,7 @@ import {
   Zap, 
   Car, 
   DoorOpen,
-  UtensilsCrossed,
+  Trees,
   Info
 } from 'lucide-react';
 import { subtleFadeUp } from '../utils/animations';
@@ -498,9 +498,9 @@ export default function RoomsPage({
               desc: 'Secure gated space for guest cars and two-wheelers inside the homestay premises.'
             },
             {
-              icon: UtensilsCrossed,
-              title: 'Shared Heritage Kitchen',
-              desc: 'Refrigerator, microwave, and cooking stove available for family meals and baby food.'
+              icon: Trees,
+              title: 'Garden',
+              desc: 'Lush outdoor greenery and peaceful open spaces to relax'
             }
           ].map((perk, i) => (
             <div key={i} className="bg-white p-6 rounded-3xl border border-[#EAE5DB] shadow-xs">
