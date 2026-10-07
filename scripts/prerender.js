@@ -75,7 +75,7 @@ function renderFooter() {
               <li>Padmanabhapuram Palace (6.9 km)</li>
               <li>Muttom Beach & Lighthouse (11.6 km)</li>
               <li>Mathur Hanging Aqueduct (16.2 km)</li>
-              <li>Eraniel Railway Station (3.2 km)</li>
+              <li>Eraniel Railway Station (750 m)</li>
             </ul>
           </div>
           <div>
@@ -112,7 +112,7 @@ const routes = [
           <p class="text-xs font-semibold text-[#3A4B3D] mb-2 uppercase tracking-wider">Ministry of Tourism Approved • A Quiet Sanctuary in Neyyoor</p>
           <h1 class="text-4xl sm:text-6xl font-serif text-[#1F2421] mb-6">Restful Homestay Experience in Kanyakumari</h1>
           <p class="text-base sm:text-lg text-[#5D645E] max-w-2xl leading-relaxed mb-8">
-            Experience hand-carved king suites, soothing sea breezes, 24/7 power backup, and verdant flowering gardens in Neyyoor, Tamil Nadu. Just 8 minutes from Eraniel Railway Station.
+            Experience hand-carved king suites, soothing sea breezes, 24/7 power backup, and verdant flowering gardens in Neyyoor, Tamil Nadu. Just 2 minutes (750 m) from Eraniel Railway Station.
           </p>
           <div class="flex flex-wrap gap-4">
             <a href="/rooms" class="px-6 py-3 rounded-full bg-[#3A4B3D] text-white font-medium">Explore Rooms</a>
@@ -267,7 +267,7 @@ const routes = [
     path: '/contact',
     outputPath: path.join(distDir, 'contact/index.html'),
     title: 'Contact & Location | Zion Inn Homestay Neyyoor',
-    description: 'Reach Zion Inn Homestay in Neyyoor, Kanyakumari. 3.2 km from Eraniel Railway Station. WhatsApp direct booking, room inquiries, route directions & FAQs.',
+    description: 'Reach Zion Inn Homestay in Neyyoor, Kanyakumari. 750 m from Eraniel Railway Station. WhatsApp direct booking, room inquiries, route directions & FAQs.',
     canonical: `${BASE_URL}/contact`,
     schema: getContactSchema(HOMESTAY_FAQS),
     content: `
@@ -285,11 +285,11 @@ const routes = [
           <div class="p-8 bg-white rounded-3xl border border-[#EAE5DB]">
             <h2 class="text-2xl font-serif text-[#1F2421] mb-6">Direct Inquiries</h2>
             <address class="not-italic text-sm text-[#4D5A50] space-y-4">
-              <p><strong>Address:</strong><br />Zion Inn Homestay, Near Eraniel Railway Station (3.2 km), Neyyoor, Kanyakumari District, Tamil Nadu – 629802</p>
+              <p><strong>Address:</strong><br />Zion Inn Homestay, Near Eraniel Railway Station (750 m), Neyyoor, Kanyakumari District, Tamil Nadu – 629802</p>
               <p><strong>Phone:</strong> <a href="tel:${CONTACT_INFO.phone1Raw}" class="text-[#3A4B3D] underline">${CONTACT_INFO.phone1}</a> / <a href="tel:${CONTACT_INFO.phone2Raw}" class="text-[#3A4B3D] underline">${CONTACT_INFO.phone2}</a></p>
               <p><strong>WhatsApp:</strong> <a href="https://wa.me/${CONTACT_INFO.whatsapp}" class="text-[#3A4B3D] underline">${CONTACT_INFO.whatsappDisplay}</a></p>
               <p><strong>Email:</strong> <a href="mailto:${CONTACT_INFO.email}" class="text-[#3A4B3D] underline">${CONTACT_INFO.email}</a></p>
-              <p><strong>Transit:</strong> 8 min from Eraniel (ERL) Station • 30 min from Nagercoil Junction • 60 km from Trivandrum (TRV) Airport</p>
+              <p><strong>Transit:</strong> 2 min (750 m) from Eraniel (ERL) Station • 30 min from Nagercoil Junction • 60 km from Trivandrum (TRV) Airport</p>
             </address>
           </div>
 

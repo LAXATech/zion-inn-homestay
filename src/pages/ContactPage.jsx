@@ -380,7 +380,7 @@ export default function ContactPage({
             {
               icon: Train,
               title: 'Eraniel Railway Station',
-              dist: '3.2 km (8 mins)',
+              dist: '750 m (2 mins)',
               desc: 'Closest railway station. Multiple daily trains to Trivandrum, Nagercoil, and Chennai.'
             },
             {

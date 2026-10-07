@@ -243,7 +243,7 @@ export const CONTACT_INFO = {
   accreditation: 'Ministry of Tourism Approved',
   addressLine1: 'Zion Inn Homestay, Neyyoor',
   addressLine2: 'Kanyakumari District, Tamil Nadu – 629802',
-  landmark: 'Near Eraniel Railway Station (3 km), close to CSI Hospital Neyyoor',
+  landmark: 'Near Eraniel Railway Station (750 m), close to CSI Hospital Neyyoor',
   phone1: '+91 81484 37600',
   phone1Raw: '+918148437600',
   phone2: '+91 93856 68505',
@@ -258,7 +258,7 @@ export const CONTACT_INFO = {
 export const HOMESTAY_FAQS = [
   {
     q: 'How far is Zion Inn Homestay from Eraniel Railway Station?',
-    a: 'Zion Inn is just 3.2 km (8 minutes drive) from Eraniel Railway Station (ERL). Local auto-rickshaws and taxis are readily available at the station, or we can assist in arranging a local driver to receive you.'
+    a: 'Zion Inn is just 750 m (2 minutes drive / easy walking distance) from Eraniel Railway Station (ERL). Local auto-rickshaws and taxis are readily available at the station, or we can assist in arranging a local driver to receive you.'
   },
   {
     q: 'What are the check-in and check-out timings?',

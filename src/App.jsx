@@ -223,7 +223,7 @@ export default function App() {
           <>
             <SEO 
               title="Contact & Location | Zion Inn Homestay Neyyoor"
-              description="Reach Zion Inn Homestay in Neyyoor, Kanyakumari. 3.2 km from Eraniel Railway Station. WhatsApp direct booking, room inquiries, route directions & FAQs."
+              description="Reach Zion Inn Homestay in Neyyoor, Kanyakumari. Just 750 m from Eraniel Railway Station. WhatsApp direct booking, room inquiries, route directions & FAQs."
               path="/contact"
               schema={getContactSchema(HOMESTAY_FAQS)}
             />
