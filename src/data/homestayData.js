@@ -69,7 +69,7 @@ export const AMENITIES_LIST = [
   {
     id: 'amenities',
     name: 'Amenities',
-    desc: 'Complementary drinking water, toiletries, and thoughtful room essentials.',
+    desc: 'Complementary drinking water, brush, shampoo. Etc.',
     iconName: 'Sparkles'
   },
   {

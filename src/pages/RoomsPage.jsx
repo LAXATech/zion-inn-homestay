@@ -9,7 +9,7 @@ import {
   MessageCircle, 
   ArrowLeft, 
   ShieldCheck, 
-  Coffee, 
+  Sparkles, 
   Wifi, 
   Zap, 
   Car, 
@@ -472,9 +472,9 @@ export default function RoomsPage({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
             {
-              icon: Coffee,
-              title: 'Morning Filter Coffee & Tea',
-              desc: 'Freshly brewed South Indian filter coffee or heritage spiced tea prepared every morning.'
+              icon: Sparkles,
+              title: 'Amenities',
+              desc: 'Complementary drinking water, brush, shampoo. Etc.'
             },
             {
               icon: Wifi,

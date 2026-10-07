@@ -44,7 +44,7 @@ export default function StoryModal({ isOpen, onClose }) {
               Tucked inside the serene green village of <strong>Neyyoor</strong> in southern Tamil Nadu, Zion Inn was envisioned as a quiet haven for travellers who appreciate genuine homestay warmth over impersonal commercial hotels.
             </p>
             <p>
-              Located just 3 km from historic <strong>Eraniel</strong>, our home sits beneath swaying coconut palms and flowering bougainvillea. Here, days start with birdsong and fresh filter coffee on the breezy veranda, and end with cool evening sea winds blowing inland from nearby Muttom.
+              Located just 3 km from historic <strong>Eraniel</strong>, our home sits beneath swaying coconut palms and flowering bougainvillea. Here, days start with birdsong and peaceful mornings on the breezy veranda, and end with cool evening sea winds blowing inland from nearby Muttom.
             </p>
             <div className="p-4 rounded-2xl bg-[#F5F2EB] border border-[#EAE5DB] text-xs text-[#222623] space-y-2">
               <div className="flex items-center gap-2">
