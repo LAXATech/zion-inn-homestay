@@ -134,7 +134,7 @@ export default function Footer({ onNavigate }) {
               <p>• Eraniel Railway Station (ERL) — 3.2 km (8 mins)</p>
               <p>• Padmanabhapuram Wooden Palace — 6.9 km (14 mins)</p>
               <p>• Muttom Rocky Beach & Lighthouse — 11.6 km (20 mins)</p>
-              <p>• Mathur Hanging Aqueduct — 8 km (18 mins)</p>
+              <p>• Mathur Hanging Aqueduct — 16.2 km (25 mins)</p>
             </div>
           </div>
         </div>

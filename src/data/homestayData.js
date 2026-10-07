@@ -110,11 +110,11 @@ export const ATTRACTIONS_LIST = [
   {
     id: 'mathur',
     name: 'Mathur Hanging Aqueduct',
-    distance: '8 km',
+    distance: '16.2 km',
     category: 'Scenic Landmark',
     image: '/images/mathur-aqueduct.webp',
     description: 'One of Asia’s longest and highest hanging trough aqueducts, towering 115 ft above dense green coconut groves with breathtaking valley vistas.',
-    driveTime: '18 min drive',
+    driveTime: '25 min drive',
     bestTime: 'Late Afternoon (3:30 PM - 6:00 PM)'
   },
   {
