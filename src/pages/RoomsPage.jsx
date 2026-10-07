@@ -13,6 +13,7 @@ import {
   Wifi, 
   Zap, 
   Car, 
+  DoorOpen,
   UtensilsCrossed,
   Info
 } from 'lucide-react';
@@ -487,9 +488,9 @@ export default function RoomsPage({
               desc: 'Continuous inverter & solar backup ensures uninterrupted lighting, fans, and device charging.'
             },
             {
-              icon: ShieldCheck,
-              title: 'Sanitized Daily Housekeeping',
-              desc: 'Pristine 100% cotton linens, freshly laundered towels, and clean attached bathrooms.'
+              icon: DoorOpen,
+              title: 'Private Balconies',
+              desc: 'Breathe fresh morning air with views of flowering greenery.'
             },
             {
               icon: Car,
